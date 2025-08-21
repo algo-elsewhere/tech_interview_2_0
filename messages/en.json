@@ -31,5 +31,30 @@
     "description": "Get the latest interview tips",
     "placeholder": "Enter your email",
     "subscribe": "Subscribe"
+  },
+  "navigation": {
+    "home": "Home",
+    "blog": "Blog",
+    "courses": "Courses",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "footer": {
+    "description": "Expert preparation for algorithms, system design, and GenAI interviews.",
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "company": "Company",
+    "newsletter": "Newsletter",
+    "copyright": "© 2024 Tech Interview Consultant. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "language": {
+    "switch": "Switch language",
+    "en": "English",
+    "zh-Hans": "简体中文",
+    "zh-Hant": "繁體中文"
   }
 }

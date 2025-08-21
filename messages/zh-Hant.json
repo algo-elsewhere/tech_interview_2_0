@@ -31,5 +31,30 @@
     "description": "獲取最新面試技巧",
     "placeholder": "輸入您的電子郵件",
     "subscribe": "訂閱"
+  },
+  "navigation": {
+    "home": "首頁",
+    "blog": "部落格",
+    "courses": "課程",
+    "about": "關於",
+    "contact": "聯繫",
+    "menu": "菜單",
+    "close": "關閉"
+  },
+  "footer": {
+    "description": "演算法、系統設計和生成式AI面試的專業準備。",
+    "quickLinks": "快捷連結",
+    "resources": "資源",
+    "company": "公司",
+    "newsletter": "訂閱通訊",
+    "copyright": "© 2024 技術面試顾問。保留所有權利。",
+    "privacy": "隱私政策",
+    "terms": "服務條款"
+  },
+  "language": {
+    "switch": "切換語言",
+    "en": "English",
+    "zh-Hans": "簡體中文",
+    "zh-Hant": "繁體中文"
   }
 }

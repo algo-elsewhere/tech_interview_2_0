@@ -31,5 +31,30 @@
     "description": "获取最新面试技巧",
     "placeholder": "输入您的邮箱",
     "subscribe": "订阅"
+  },
+  "navigation": {
+    "home": "首页",
+    "blog": "博客",
+    "courses": "课程",
+    "about": "关于",
+    "contact": "联系",
+    "menu": "菜单",
+    "close": "关闭"
+  },
+  "footer": {
+    "description": "算法、系统设计和生成式AI面试的专业准备。",
+    "quickLinks": "快捷链接",
+    "resources": "资源",
+    "company": "公司",
+    "newsletter": "订阅通讯",
+    "copyright": "© 2024 技术面试顾问。保留所有权利。",
+    "privacy": "隐私政策",
+    "terms": "服务条款"
+  },
+  "language": {
+    "switch": "切换语言",
+    "en": "English",
+    "zh-Hans": "简体中文",
+    "zh-Hant": "繁體中文"
   }
 }
