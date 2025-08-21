@@ -172,5 +172,99 @@
     "prerequisiteBeginner": "No prior experience required. Basic programming knowledge helpful.",
     "prerequisiteIntermediate": "1-2 years of programming experience and understanding of basic data structures.",
     "prerequisiteAdvanced": "3+ years of development experience and solid understanding of algorithms and system design."
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact Us | Tech Interview Consultant",
+      "description": "Get in touch with our expert team for personalized interview preparation and career guidance."
+    },
+    "title": "Contact Us",
+    "subtitle": "Ready to transform your career? Let's discuss how we can help you succeed in your next technical interview.",
+    "form": {
+      "title": "Send us a message",
+      "description": "Fill out the form below and we'll get back to you within 24 hours.",
+      "fields": {
+        "name": "Full Name",
+        "email": "Email Address",
+        "company": "Company",
+        "inquiryType": "Inquiry Type",
+        "subject": "Subject",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "Enter your full name",
+        "email": "Enter your email address",
+        "company": "Your current company (optional)",
+        "inquiryType": "Select inquiry type",
+        "subject": "Brief description of your inquiry",
+        "message": "Tell us more about how we can help you..."
+      },
+      "inquiryTypes": {
+        "general": "General Inquiry",
+        "courses": "Course Information",
+        "consulting": "1-on-1 Consulting",
+        "partnership": "Business Partnership",
+        "technical": "Technical Support"
+      },
+      "validation": {
+        "nameRequired": "Name is required",
+        "nameMinLength": "Name must be at least 2 characters",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "subjectRequired": "Subject is required",
+        "subjectMinLength": "Subject must be at least 5 characters",
+        "messageRequired": "Message is required",
+        "messageMinLength": "Message must be at least 20 characters",
+        "serverError": "Something went wrong. Please try again later."
+      },
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": {
+        "title": "Message Sent!",
+        "message": "Thank you for reaching out to us.",
+        "response": "We'll review your message and get back to you within 24 hours.",
+        "sendAnother": "Send Another Message"
+      },
+      "privacy": "By submitting this form, you agree to our privacy policy. We'll never share your information."
+    },
+    "info": {
+      "title": "Get in touch",
+      "description": "Choose the best way to reach us. We're here to help with your career journey.",
+      "methods": {
+        "email": {
+          "title": "Email Us",
+          "description": "Send us an email and we'll respond within 24 hours."
+        },
+        "chat": {
+          "title": "Live Chat",
+          "description": "Chat with our team in real-time during business hours.",
+          "value": "Start Live Chat"
+        },
+        "phone": {
+          "title": "Call Us",
+          "description": "Speak directly with our consultants."
+        }
+      },
+      "business": {
+        "title": "Business Information",
+        "hours": {
+          "title": "Business Hours",
+          "value": "Monday - Friday, 9:00 AM - 6:00 PM"
+        },
+        "location": {
+          "title": "Location",
+          "value": "San Francisco, CA (Remote Services Worldwide)"
+        },
+        "timezone": {
+          "title": "Timezone",
+          "value": "Pacific Standard Time (PST)"
+        }
+      },
+      "cta": {
+        "title": "Schedule a Free Consultation",
+        "description": "Book a 30-minute call to discuss your interview goals and create a personalized preparation plan.",
+        "button": "Book Free Call"
+      }
+    }
   }
 }

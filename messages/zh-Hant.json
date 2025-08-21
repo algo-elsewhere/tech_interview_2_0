@@ -172,5 +172,99 @@
     "prerequisiteBeginner": "無需先驗經驗。基本程式知識有幫助。",
     "prerequisiteIntermediate": "1-2年程式經驗和基本資料結構理解。",
     "prerequisiteAdvanced": "3年以上開發經驗和對演算法及系統設計的深入理解。"
+  },
+  "contact": {
+    "meta": {
+      "title": "聯絡我們 | 技術面試顧問",
+      "description": "與我們的專家團隊聯絡，獲得個人化的面試準備和職涯指導。"
+    },
+    "title": "聯絡我們",
+    "subtitle": "準備好轉變您的職涯了嗎？讓我們討論如何幫助您在下次技術面試中成功。",
+    "form": {
+      "title": "發送訊息",
+      "description": "填寫下面的表格，我們將在24小時內回覆您。",
+      "fields": {
+        "name": "姓名",
+        "email": "電子郵件地址",
+        "company": "公司",
+        "inquiryType": "諮詢類型",
+        "subject": "主題",
+        "message": "訊息"
+      },
+      "placeholders": {
+        "name": "輸入您的姓名",
+        "email": "輸入您的電子郵件地址",
+        "company": "您目前的公司（可選）",
+        "inquiryType": "選擇諮詢類型",
+        "subject": "簡要描述您的諮詢",
+        "message": "告訴我們如何為您提供幫助..."
+      },
+      "inquiryTypes": {
+        "general": "一般諮詢",
+        "courses": "課程資訊",
+        "consulting": "一對一諮詢",
+        "partnership": "商業合作",
+        "technical": "技術支援"
+      },
+      "validation": {
+        "nameRequired": "姓名必填",
+        "nameMinLength": "姓名至少需要2個字元",
+        "emailRequired": "電子郵件必填",
+        "emailInvalid": "請輸入有效的電子郵件地址",
+        "subjectRequired": "主題必填",
+        "subjectMinLength": "主題至少需要5個字元",
+        "messageRequired": "訊息必填",
+        "messageMinLength": "訊息至少需要20個字元",
+        "serverError": "出現錯誤，請稍後重試。"
+      },
+      "submit": "發送訊息",
+      "sending": "發送中...",
+      "success": {
+        "title": "訊息已發送！",
+        "message": "感謝您與我們聯絡。",
+        "response": "我們將審核您的訊息並在24小時內回覆。",
+        "sendAnother": "發送另一條訊息"
+      },
+      "privacy": "提交此表格即表示您同意我們的隱私政策。我們絕不會分享您的資訊。"
+    },
+    "info": {
+      "title": "聯絡方式",
+      "description": "選擇最佳方式聯絡我們。我們在這裡幫助您的職涯發展。",
+      "methods": {
+        "email": {
+          "title": "電子郵件聯絡",
+          "description": "發送電子郵件給我們，我們將在24小時內回覆。"
+        },
+        "chat": {
+          "title": "線上聊天",
+          "description": "在工作時間與我們的團隊即時聊天。",
+          "value": "開始線上聊天"
+        },
+        "phone": {
+          "title": "電話聯絡",
+          "description": "直接與我們的顧問通話。"
+        }
+      },
+      "business": {
+        "title": "商業資訊",
+        "hours": {
+          "title": "營業時間",
+          "value": "週一至週五，上午9:00 - 下午6:00"
+        },
+        "location": {
+          "title": "位置",
+          "value": "舊金山，加州（全球遠程服務）"
+        },
+        "timezone": {
+          "title": "時區",
+          "value": "太平洋標準時間 (PST)"
+        }
+      },
+      "cta": {
+        "title": "預約免費諮詢",
+        "description": "預約30分鐘通話，討論您的面試目標並制定個人化準備計劃。",
+        "button": "預約免費通話"
+      }
+    }
   }
 }
