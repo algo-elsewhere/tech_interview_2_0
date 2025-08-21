@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
+import { AnalyticsProvider } from '@/components/analytics'
 
 export const metadata: Metadata = {
   title: 'Tech Interview Consultant',
@@ -12,5 +13,9 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  return children
+  return (
+    <AnalyticsProvider domain={process.env.NEXT_PUBLIC_ANALYTICS_DOMAIN}>
+      {children}
+    </AnalyticsProvider>
+  )
 }

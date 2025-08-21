@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { getAllCourses } from '@/lib/content'
 import { CourseList } from '@/components/courses/course-list'
+import { StructuredData } from '@/components/seo'
+import { generateSEOMetadata, generateBreadcrumbSchema } from '@/lib/seo'
 
 interface CoursesPageProps {
   params: Promise<{ locale: string }>
@@ -16,15 +18,13 @@ export async function generateMetadata({
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'courses' })
 
-  return {
+  return generateSEOMetadata({
     title: t('meta.title'),
     description: t('meta.description'),
-    openGraph: {
-      title: t('meta.title'),
-      description: t('meta.description'),
-      type: 'website',
-    },
-  }
+    canonical: `/${locale}/courses`,
+    keywords: ['tech interview courses', 'coding interview training', 'system design course', 'algorithm course'],
+    locale
+  })
 }
 
 export default async function CoursesPage({
@@ -51,23 +51,31 @@ export default async function CoursesPage({
     )
   }
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: `/${locale}` },
+    { name: 'Courses', url: `/${locale}/courses` }
+  ])
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold tracking-tight mb-4">
-          {t('title')}
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl">
-          {t('subtitle')}
-        </p>
+    <>
+      <StructuredData data={breadcrumbSchema} />
+      <div className="container mx-auto px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold tracking-tight mb-4">
+            {t('title')}
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl">
+            {t('subtitle')}
+          </p>
+        </div>
+        
+        <CourseList 
+          courses={filteredCourses}
+          currentCategory={category}
+          currentLevel={level}
+          currentPage={page ? parseInt(page) : 1}
+        />
       </div>
-      
-      <CourseList 
-        courses={filteredCourses}
-        currentCategory={category}
-        currentLevel={level}
-        currentPage={page ? parseInt(page) : 1}
-      />
-    </div>
+    </>
   )
 }

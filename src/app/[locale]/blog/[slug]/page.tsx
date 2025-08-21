@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getPostBySlug, getAllPosts } from '@/lib/content'
 import { BlogPost } from '@/components/blog/blog-post'
+import { BlogPostTracker } from '@/components/blog/blog-post-tracker'
+import { StructuredData } from '@/components/seo'
+import { generateSEOMetadata, generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo'
 
 interface BlogPostPageProps {
   params: Promise<{ locale: string; slug: string }>
@@ -36,26 +39,18 @@ export async function generateMetadata({
     }
   }
 
-  return {
+  return generateSEOMetadata({
     title: post.meta.title,
     description: post.meta.description,
-    authors: [{ name: post.meta.author }],
-    openGraph: {
-      title: post.meta.title,
-      description: post.meta.description,
-      type: 'article',
-      publishedTime: post.meta.publishedAt,
-      modifiedTime: post.meta.updatedAt,
-      authors: [post.meta.author],
-      tags: post.meta.tags,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.meta.title,
-      description: post.meta.description,
-    },
     keywords: post.meta.tags,
-  }
+    canonical: `/${locale}/blog/${slug}`,
+    ogType: 'article',
+    publishedTime: post.meta.publishedAt,
+    modifiedTime: post.meta.updatedAt,
+    authors: [post.meta.author],
+    category: post.meta.category,
+    locale
+  })
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -66,5 +61,33 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
-  return <BlogPost post={post} />
+  const articleSchema = generateArticleSchema({
+    title: post.meta.title,
+    description: post.meta.description,
+    author: post.meta.author,
+    publishedTime: post.meta.publishedAt,
+    modifiedTime: post.meta.updatedAt,
+    url: `/${locale}/blog/${slug}`,
+    category: post.meta.category
+  })
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: `/${locale}` },
+    { name: 'Blog', url: `/${locale}/blog` },
+    { name: post.meta.title, url: `/${locale}/blog/${slug}` }
+  ])
+
+  return (
+    <>
+      <StructuredData data={articleSchema} />
+      <StructuredData data={breadcrumbSchema} />
+      <BlogPostTracker 
+        slug={slug}
+        locale={locale} 
+        category={post.meta.category}
+        title={post.meta.title}
+      />
+      <BlogPost post={post} />
+    </>
+  )
 }

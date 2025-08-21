@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Send, CheckCircle, AlertCircle, User, Mail, MessageSquare } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useTracking } from '@/hooks/use-tracking'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
@@ -41,9 +42,11 @@ const initialFormData: FormData = {
 
 export function ContactForm() {
   const t = useTranslations('contact')
+  const { trackForm } = useTracking()
   const [formData, setFormData] = useState<FormData>(initialFormData)
   const [formState, setFormState] = useState<FormState>('idle')
   const [errors, setErrors] = useState<FormErrors>({})
+  const [hasStartedForm, setHasStartedForm] = useState(false)
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
@@ -83,6 +86,16 @@ export function ContactForm() {
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
+    
+    // Track form start on first interaction
+    if (!hasStartedForm) {
+      setHasStartedForm(true)
+      trackForm({
+        form_type: 'contact',
+        event_type: 'start'
+      })
+    }
+    
     // Clear error when user starts typing
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: undefined }))
@@ -118,9 +131,22 @@ export function ContactForm() {
       
       setFormState('success')
       setFormData(initialFormData)
+      
+      // Track successful form submission
+      trackForm({
+        form_type: 'contact',
+        event_type: 'success'
+      })
     } catch {
       setFormState('error')
       setErrors({ general: t('form.validation.serverError') })
+      
+      // Track form submission error
+      trackForm({
+        form_type: 'contact',
+        event_type: 'error',
+        error_message: 'Server error'
+      })
     }
   }
 
@@ -128,6 +154,7 @@ export function ContactForm() {
     setFormState('idle')
     setFormData(initialFormData)
     setErrors({})
+    setHasStartedForm(false)
   }
 
   if (formState === 'success') {

@@ -2,6 +2,9 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getCourseBySlug, getAllCourses } from '@/lib/content'
 import { CourseDetail } from '@/components/courses/course-detail'
+import { CourseTracker } from '@/components/courses/course-tracker'
+import { StructuredData } from '@/components/seo'
+import { generateSEOMetadata, generateCourseSchema, generateBreadcrumbSchema } from '@/lib/seo'
 
 interface CourseDetailPageProps {
   params: Promise<{ locale: string; slug: string }>
@@ -36,26 +39,18 @@ export async function generateMetadata({
     }
   }
 
-  return {
+  return generateSEOMetadata({
     title: course.meta.title,
     description: course.meta.description,
-    authors: [{ name: course.meta.author }],
-    openGraph: {
-      title: course.meta.title,
-      description: course.meta.description,
-      type: 'article',
-      publishedTime: course.meta.publishedAt,
-      modifiedTime: course.meta.updatedAt,
-      authors: [course.meta.author],
-      tags: course.meta.tags,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: course.meta.title,
-      description: course.meta.description,
-    },
     keywords: course.meta.tags,
-  }
+    canonical: `/${locale}/courses/${slug}`,
+    ogType: 'article',
+    publishedTime: course.meta.publishedAt,
+    modifiedTime: course.meta.updatedAt,
+    authors: [course.meta.author],
+    category: course.meta.category,
+    locale
+  })
 }
 
 export default async function CourseDetailPage({ params }: CourseDetailPageProps) {
@@ -66,5 +61,34 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
     notFound()
   }
 
-  return <CourseDetail course={course} />
+  const courseSchema = generateCourseSchema({
+    title: course.meta.title,
+    description: course.meta.description,
+    instructor: course.meta.author,
+    price: course.meta.price,
+    currency: course.meta.currency,
+    url: `/${locale}/courses/${slug}`,
+    category: course.meta.category,
+    level: course.meta.level
+  })
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: `/${locale}` },
+    { name: 'Courses', url: `/${locale}/courses` },
+    { name: course.meta.title, url: `/${locale}/courses/${slug}` }
+  ])
+
+  return (
+    <>
+      <StructuredData data={courseSchema} />
+      <StructuredData data={breadcrumbSchema} />
+      <CourseTracker 
+        slug={slug}
+        locale={locale} 
+        category={course.meta.category}
+        title={course.meta.title}
+      />
+      <CourseDetail course={course} />
+    </>
+  )
 }

@@ -1,7 +1,10 @@
+'use client'
+
 import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui'
 import { Link } from '@/i18n/routing'
 import { ArrowRight, Star, Users, Briefcase, TrendingUp } from 'lucide-react'
+import { useTracking } from '@/hooks/use-tracking'
 
 const companies = [
   'Google', 'Meta', 'Amazon', 'Microsoft', 'Apple'
@@ -9,6 +12,7 @@ const companies = [
 
 export function HeroSection() {
   const t = useTranslations('hero')
+  const { trackCTA } = useTracking()
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5">
@@ -31,13 +35,31 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button asChild size="lg" className="group">
+            <Button 
+              asChild 
+              size="lg" 
+              className="group"
+              onClick={() => trackCTA({
+                location: 'hero',
+                action: 'get_started',
+                label: 'Get Started - Courses'
+              })}
+            >
               <Link href="/courses">
                 {t('getStarted')}
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              asChild
+              onClick={() => trackCTA({
+                location: 'hero',
+                action: 'view_courses',
+                label: 'View Courses - About'
+              })}
+            >
               <Link href="/about">
                 {t('viewCourses')}
               </Link>

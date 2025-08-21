@@ -55,11 +55,22 @@ npm run test
 Create a file named `.env.local` and add values as needed, for example:
 
 ```
-NEXT_PUBLIC_ANALYTICS_ID=your_id_here
+# Analytics Configuration (Plausible)
+NEXT_PUBLIC_ANALYTICS_DOMAIN=yourdomain.com
+NEXT_PUBLIC_ENABLE_ANALYTICS=true
+
+# Email Configuration
 RESEND_API_KEY=your_api_key_here
 ```
 
 Never commit `.env.local`. Store production secrets in Vercel environment variables.
+
+### Analytics Setup
+This project uses Plausible Analytics for privacy-friendly tracking. To enable analytics:
+
+1. Set `NEXT_PUBLIC_ANALYTICS_DOMAIN` to your website domain
+2. Set `NEXT_PUBLIC_ENABLE_ANALYTICS=true` to enable tracking in development
+3. In production, analytics are enabled automatically when domain is configured
 
 ---
 

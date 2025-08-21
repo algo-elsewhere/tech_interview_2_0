@@ -5,21 +5,34 @@ import { useTranslations } from 'next-intl'
 import { Button, Input, Card } from '@/components/ui'
 import { Mail, CheckCircle, AlertCircle, Send } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useTracking } from '@/hooks/use-tracking'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
 export function NewsletterSection() {
   const t = useTranslations('newsletter')
+  const { trackForm } = useTracking()
   const [email, setEmail] = useState('')
   const [formState, setFormState] = useState<FormState>('idle')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     
+    // Track form start
+    trackForm({
+      form_type: 'newsletter',
+      event_type: 'start'
+    })
+    
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
       setFormState('error')
+      trackForm({
+        form_type: 'newsletter',
+        event_type: 'error',
+        error_message: 'Invalid email format'
+      })
       return
     }
 
@@ -38,8 +51,19 @@ export function NewsletterSection() {
       
       setFormState('success')
       setEmail('')
+      
+      // Track successful subscription
+      trackForm({
+        form_type: 'newsletter',
+        event_type: 'success'
+      })
     } catch {
       setFormState('error')
+      trackForm({
+        form_type: 'newsletter',
+        event_type: 'error',
+        error_message: 'Server error'
+      })
     }
   }
 

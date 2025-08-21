@@ -5,6 +5,8 @@ import { routing } from '@/i18n/routing'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { MainLayout } from '@/components/layout'
+import { StructuredData } from '@/components/seo'
+import { generateSEOMetadata, generateOrganizationSchema } from '@/lib/seo'
 
 interface LocaleLayoutProps {
   children: ReactNode
@@ -23,10 +25,12 @@ export async function generateMetadata({
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'meta' })
 
-  return {
+  return generateSEOMetadata({
     title: t('title'),
-    description: t('description')
-  }
+    description: t('description'),
+    canonical: `/${locale}`,
+    locale
+  })
 }
 
 export default async function LocaleLayout({
@@ -41,9 +45,13 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages()
+  const organizationSchema = generateOrganizationSchema()
 
   return (
     <html lang={locale}>
+      <head>
+        <StructuredData data={organizationSchema} />
+      </head>
       <body>
         <NextIntlClientProvider messages={messages}>
           <MainLayout>

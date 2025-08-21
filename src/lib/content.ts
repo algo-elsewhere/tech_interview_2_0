@@ -28,6 +28,7 @@ export interface PostMeta extends ContentMeta {
 
 export interface CourseMeta extends ContentMeta {
   price?: number
+  currency?: string
   duration?: string
   lessons?: number
   level?: 'beginner' | 'intermediate' | 'advanced'
