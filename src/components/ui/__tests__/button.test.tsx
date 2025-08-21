@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen } from '@/lib/test-utils'
 import { Button } from '../button'
 
 describe('Button', () => {

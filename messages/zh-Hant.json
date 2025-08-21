@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "技術面試顧問",
+    "description": "演算法、系統設計和GenAI面試的專業準備"
+  },
+  "hero": {
+    "title": "技術面試顧問",
+    "description": "演算法、系統設計和GenAI面試的專業準備",
+    "getStarted": "開始使用",
+    "learnMore": "瞭解更多"
+  },
+  "services": {
+    "algorithms": {
+      "title": "演算法",
+      "description": "掌握程式面試",
+      "content": "全面準備程式挑戰和演算法問題。"
+    },
+    "systemDesign": {
+      "title": "系統設計",
+      "description": "信心滿滿地擴展",
+      "content": "學習為高級面試設計強大、可擴展的系統。"
+    },
+    "genai": {
+      "title": "GenAI專業知識",
+      "description": "面向未來的技能",
+      "content": "透過AI/ML面試準備和現代實務保持領先。"
+    }
+  },
+  "newsletter": {
+    "title": "保持更新",
+    "description": "獲取最新面試技巧",
+    "placeholder": "輸入您的電子郵件",
+    "subscribe": "訂閱"
+  }
+}

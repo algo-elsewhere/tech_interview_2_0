@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "技术面试顾问",
+    "description": "算法、系统设计和GenAI面试的专业准备"
+  },
+  "hero": {
+    "title": "技术面试顾问",
+    "description": "算法、系统设计和GenAI面试的专业准备",
+    "getStarted": "开始使用",
+    "learnMore": "了解更多"
+  },
+  "services": {
+    "algorithms": {
+      "title": "算法",
+      "description": "掌握编程面试",
+      "content": "全面准备编程挑战和算法问题。"
+    },
+    "systemDesign": {
+      "title": "系统设计",
+      "description": "信心满满地扩展",
+      "content": "学习为高级面试设计强大、可扩展的系统。"
+    },
+    "genai": {
+      "title": "GenAI专业知识",
+      "description": "面向未来的技能",
+      "content": "通过AI/ML面试准备和现代实践保持领先。"
+    }
+  },
+  "newsletter": {
+    "title": "保持更新",
+    "description": "获取最新面试技巧",
+    "placeholder": "输入您的邮箱",
+    "subscribe": "订阅"
+  }
+}

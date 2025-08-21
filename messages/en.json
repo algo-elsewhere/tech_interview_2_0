@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "title": "Tech Interview Consultant",
+    "description": "Expert preparation for algorithms, system design, and GenAI interviews"
+  },
+  "hero": {
+    "title": "Tech Interview Consultant",
+    "description": "Expert preparation for algorithms, system design, and GenAI interviews",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More"
+  },
+  "services": {
+    "algorithms": {
+      "title": "Algorithms",
+      "description": "Master coding interviews",
+      "content": "Comprehensive preparation for coding challenges and algorithm problems."
+    },
+    "systemDesign": {
+      "title": "System Design",
+      "description": "Scale with confidence",
+      "content": "Learn to design robust, scalable systems for senior-level interviews."
+    },
+    "genai": {
+      "title": "GenAI Expertise",
+      "description": "Future-ready skills",
+      "content": "Stay ahead with AI/ML interview preparation and modern practices."
+    }
+  },
+  "newsletter": {
+    "title": "Stay Updated",
+    "description": "Get the latest interview tips",
+    "placeholder": "Enter your email",
+    "subscribe": "Subscribe"
+  }
+}

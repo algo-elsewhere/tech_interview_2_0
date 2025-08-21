@@ -1,58 +1,61 @@
+import { useTranslations } from 'next-intl'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 
 export default function HomePage() {
+  const t = useTranslations()
+  
   return (
     <main className="min-h-screen bg-background p-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            Tech Interview Consultant
+            {t('hero.title')}
           </h1>
           <p className="text-xl text-muted-foreground mb-8">
-            Expert preparation for algorithms, system design, and GenAI interviews
+            {t('hero.description')}
           </p>
           
           <div className="flex gap-4 justify-center">
-            <Button size="lg">Get Started</Button>
-            <Button variant="outline" size="lg">Learn More</Button>
+            <Button size="lg">{t('hero.getStarted')}</Button>
+            <Button variant="outline" size="lg">{t('hero.learnMore')}</Button>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           <Card>
             <CardHeader>
-              <CardTitle>Algorithms</CardTitle>
-              <CardDescription>Master coding interviews</CardDescription>
+              <CardTitle>{t('services.algorithms.title')}</CardTitle>
+              <CardDescription>{t('services.algorithms.description')}</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Comprehensive preparation for coding challenges and algorithm problems.
+                {t('services.algorithms.content')}
               </p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle>System Design</CardTitle>
-              <CardDescription>Scale with confidence</CardDescription>
+              <CardTitle>{t('services.systemDesign.title')}</CardTitle>
+              <CardDescription>{t('services.systemDesign.description')}</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Learn to design robust, scalable systems for senior-level interviews.
+                {t('services.systemDesign.content')}
               </p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle>GenAI Expertise</CardTitle>
-              <CardDescription>Future-ready skills</CardDescription>
+              <CardTitle>{t('services.genai.title')}</CardTitle>
+              <CardDescription>{t('services.genai.description')}</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Stay ahead with AI/ML interview preparation and modern practices.
+                {t('services.genai.content')}
               </p>
             </CardContent>
           </Card>
@@ -60,12 +63,12 @@ export default function HomePage() {
 
         <Card className="max-w-md mx-auto">
           <CardHeader>
-            <CardTitle>Stay Updated</CardTitle>
-            <CardDescription>Get the latest interview tips</CardDescription>
+            <CardTitle>{t('newsletter.title')}</CardTitle>
+            <CardDescription>{t('newsletter.description')}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Input placeholder="Enter your email" type="email" />
-            <Button className="w-full">Subscribe</Button>
+            <Input placeholder={t('newsletter.placeholder')} type="email" />
+            <Button className="w-full">{t('newsletter.subscribe')}</Button>
           </CardContent>
         </Card>
       </div>
