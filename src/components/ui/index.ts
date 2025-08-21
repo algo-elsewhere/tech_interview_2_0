@@ -14,3 +14,4 @@ export {
   SelectLabel,
   SelectSeparator 
 } from './select'
+export { OptimizedImage } from './optimized-image'

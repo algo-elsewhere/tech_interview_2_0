@@ -83,6 +83,23 @@ The website includes comprehensive SEO optimization:
 
 📖 **For detailed SEO setup and testing instructions, see [docs/SEO-GUIDE.md](./docs/SEO-GUIDE.md)**
 
+### Performance Optimization
+The website includes comprehensive performance optimizations for excellent Core Web Vitals:
+
+- **Font optimization** with Inter font preloading and `font-display: swap`
+- **Image optimization** with WebP/AVIF formats and responsive sizing
+- **Code splitting** with dynamic imports for non-critical components
+- **Web Vitals monitoring** with real-time performance tracking
+- **Bundle optimization** with tree-shaking and minimal JavaScript
+
+**Performance Testing:**
+```bash
+npm run perf        # Run Lighthouse performance tests
+npm run analyze     # Analyze bundle sizes
+```
+
+🚀 **For detailed performance optimization guide, see [docs/PERFORMANCE.md](./docs/PERFORMANCE.md)**
+
 ---
 
 ## Project Structure (example)

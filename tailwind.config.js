@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "rgb(var(--border))",
         input: "rgb(var(--input))",
