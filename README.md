@@ -72,6 +72,17 @@ This project uses Plausible Analytics for privacy-friendly tracking. To enable a
 2. Set `NEXT_PUBLIC_ENABLE_ANALYTICS=true` to enable tracking in development
 3. In production, analytics are enabled automatically when domain is configured
 
+### SEO Configuration
+The website includes comprehensive SEO optimization:
+
+- **Automatic sitemap generation** at `/sitemap.xml` (includes all content and locales)
+- **Robots.txt configuration** at `/robots.txt` for search engine crawling
+- **Open Graph and Twitter Card metadata** for social media sharing
+- **Schema.org structured data** for rich search results
+- **Multi-language SEO** with proper hreflang tags
+
+📖 **For detailed SEO setup and testing instructions, see [docs/SEO-GUIDE.md](./docs/SEO-GUIDE.md)**
+
 ---
 
 ## Project Structure (example)
