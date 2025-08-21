@@ -94,5 +94,83 @@
     "primary": "開始免費試用",
     "secondary": "安排課詢",
     "guarantee": "30天退款保證"
+  },
+  "blog": {
+    "meta": {
+      "title": "技術面試部落格 | 專家技巧與教學",
+      "description": "透過我們關於演算法、系統設計和面試準備策略的綜合指南，掌握程式面試。"
+    },
+    "title": "技術面試部落格",
+    "subtitle": "專家見解、教學和技巧，幫助您在下次技術面試中取得成功",
+    "filters": {
+      "search": "搜尋文章...",
+      "categories": "分類",
+      "all": "全部",
+      "active": "活動篩選",
+      "clear": "清除全部"
+    },
+    "difficulty": {
+      "beginner": "初級",
+      "intermediate": "中級", 
+      "advanced": "高級"
+    },
+    "noResults": {
+      "title": "未找到文章",
+      "description": "嘗試調整您的搜尋或篩選條件來找到您想要的內容。"
+    },
+    "pagination": {
+      "previous": "上一頁",
+      "next": "下一頁"
+    },
+    "backToBlog": "返回部落格",
+    "share": "分享",
+    "wasHelpful": "這篇文章對您有幫助嗎？"
+  },
+  "courses": {
+    "meta": {
+      "title": "技術面試課程 | 專家培訓項目",
+      "description": "透過我們關於演算法、系統設計和AI工程的綜合課程，掌握技術面試。"
+    },
+    "title": "面試準備課程",
+    "subtitle": "透過專為技術面試成功設計的專家課程，轉變您的職業生涯",
+    "filters": {
+      "search": "搜尋課程...",
+      "categories": "分類",
+      "levels": "技能水平",
+      "all": "全部",
+      "active": "活動篩選",
+      "clear": "清除全部"
+    },
+    "level": {
+      "beginner": "初級",
+      "intermediate": "中級", 
+      "advanced": "高級"
+    },
+    "noResults": {
+      "title": "未找到課程",
+      "description": "嘗試調整您的搜尋或篩選條件來找到您想要的內容。"
+    },
+    "pagination": {
+      "previous": "上一頁",
+      "next": "下一頁"
+    },
+    "lessons": "課時",
+    "featured": "精選",
+    "free": "免費",
+    "enrollNow": "立即報名",
+    "startFree": "免費開始",
+    "backToCourses": "返回課程",
+    "enrollToday": "今日報名",
+    "startLearning": "開始學習",
+    "moneyBackGuarantee": "30天退款保證",
+    "courseIncludes": "課程包含：",
+    "ofContent": "內容",
+    "communityAccess": "社群訪問",
+    "certificateCompletion": "完成證書",
+    "lifetimeAccess": "終身訪問",
+    "prerequisites": "先決條件",
+    "prerequisiteBeginner": "無需先驗經驗。基本程式知識有幫助。",
+    "prerequisiteIntermediate": "1-2年程式經驗和基本資料結構理解。",
+    "prerequisiteAdvanced": "3年以上開發經驗和對演算法及系統設計的深入理解。"
   }
 }

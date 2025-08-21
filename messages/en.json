@@ -94,5 +94,83 @@
     "primary": "Start Free Trial",
     "secondary": "Schedule Consultation",
     "guarantee": "30-day money-back guarantee"
+  },
+  "blog": {
+    "meta": {
+      "title": "Tech Interview Blog | Expert Tips & Tutorials",
+      "description": "Master coding interviews with our comprehensive guides on algorithms, system design, and interview preparation strategies."
+    },
+    "title": "Tech Interview Blog",
+    "subtitle": "Expert insights, tutorials, and tips to help you ace your next technical interview",
+    "filters": {
+      "search": "Search articles...",
+      "categories": "Categories",
+      "all": "All",
+      "active": "Active filters",
+      "clear": "Clear all"
+    },
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate", 
+      "advanced": "Advanced"
+    },
+    "noResults": {
+      "title": "No articles found",
+      "description": "Try adjusting your search or filter criteria to find what you're looking for."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "backToBlog": "Back to Blog",
+    "share": "Share",
+    "wasHelpful": "Was this article helpful?"
+  },
+  "courses": {
+    "meta": {
+      "title": "Tech Interview Courses | Expert Training Programs",
+      "description": "Master technical interviews with our comprehensive courses on algorithms, system design, and AI engineering."
+    },
+    "title": "Interview Preparation Courses",
+    "subtitle": "Transform your career with expert-led courses designed for technical interview success",
+    "filters": {
+      "search": "Search courses...",
+      "categories": "Categories",
+      "levels": "Skill Level",
+      "all": "All",
+      "active": "Active filters",
+      "clear": "Clear all"
+    },
+    "level": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate", 
+      "advanced": "Advanced"
+    },
+    "noResults": {
+      "title": "No courses found",
+      "description": "Try adjusting your search or filter criteria to find what you're looking for."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "lessons": "lessons",
+    "featured": "Featured",
+    "free": "Free",
+    "enrollNow": "Enroll Now",
+    "startFree": "Start Free",
+    "backToCourses": "Back to Courses",
+    "enrollToday": "Enroll Today",
+    "startLearning": "Start Learning",
+    "moneyBackGuarantee": "30-day money-back guarantee",
+    "courseIncludes": "This course includes:",
+    "ofContent": "of content",
+    "communityAccess": "Community access",
+    "certificateCompletion": "Certificate of completion",
+    "lifetimeAccess": "Lifetime access",
+    "prerequisites": "Prerequisites",
+    "prerequisiteBeginner": "No prior experience required. Basic programming knowledge helpful.",
+    "prerequisiteIntermediate": "1-2 years of programming experience and understanding of basic data structures.",
+    "prerequisiteAdvanced": "3+ years of development experience and solid understanding of algorithms and system design."
   }
 }

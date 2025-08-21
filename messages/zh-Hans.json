@@ -94,5 +94,83 @@
     "primary": "开始免费试用",
     "secondary": "安排咨询",
     "guarantee": "30天退款保证"
+  },
+  "blog": {
+    "meta": {
+      "title": "技术面试博客 | 专家技巧与教程",
+      "description": "通过我们关于算法、系统设计和面试准备策略的综合指南，掌握编程面试。"
+    },
+    "title": "技术面试博客",
+    "subtitle": "专家见解、教程和技巧，帮助您在下次技术面试中取得成功",
+    "filters": {
+      "search": "搜索文章...",
+      "categories": "分类",
+      "all": "全部",
+      "active": "活动筛选",
+      "clear": "清除全部"
+    },
+    "difficulty": {
+      "beginner": "初级",
+      "intermediate": "中级", 
+      "advanced": "高级"
+    },
+    "noResults": {
+      "title": "未找到文章",
+      "description": "尝试调整您的搜索或筛选条件来找到您想要的内容。"
+    },
+    "pagination": {
+      "previous": "上一页",
+      "next": "下一页"
+    },
+    "backToBlog": "返回博客",
+    "share": "分享",
+    "wasHelpful": "这篇文章对您有帮助吗？"
+  },
+  "courses": {
+    "meta": {
+      "title": "技术面试课程 | 专家培训项目",
+      "description": "通过我们关于算法、系统设计和AI工程的综合课程，掌握技术面试。"
+    },
+    "title": "面试准备课程",
+    "subtitle": "通过专为技术面试成功设计的专家课程，转变您的职业生涯",
+    "filters": {
+      "search": "搜索课程...",
+      "categories": "分类",
+      "levels": "技能水平",
+      "all": "全部",
+      "active": "活动筛选",
+      "clear": "清除全部"
+    },
+    "level": {
+      "beginner": "初级",
+      "intermediate": "中级", 
+      "advanced": "高级"
+    },
+    "noResults": {
+      "title": "未找到课程",
+      "description": "尝试调整您的搜索或筛选条件来找到您想要的内容。"
+    },
+    "pagination": {
+      "previous": "上一页",
+      "next": "下一页"
+    },
+    "lessons": "课时",
+    "featured": "精选",
+    "free": "免费",
+    "enrollNow": "立即报名",
+    "startFree": "免费开始",
+    "backToCourses": "返回课程",
+    "enrollToday": "今日报名",
+    "startLearning": "开始学习",
+    "moneyBackGuarantee": "30天退款保证",
+    "courseIncludes": "课程包含：",
+    "ofContent": "内容",
+    "communityAccess": "社区访问",
+    "certificateCompletion": "完成证书",
+    "lifetimeAccess": "终身访问",
+    "prerequisites": "先决条件",
+    "prerequisiteBeginner": "无需先验经验。基本编程知识有帮助。",
+    "prerequisiteIntermediate": "1-2年编程经验和基本数据结构理解。",
+    "prerequisiteAdvanced": "3年以上开发经验和对算法及系统设计的深入理解。"
   }
 }
