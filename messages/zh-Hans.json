@@ -4,33 +4,59 @@
     "description": "算法、系统设计和GenAI面试的专业准备"
   },
   "hero": {
-    "title": "技术面试顾问",
-    "description": "算法、系统设计和GenAI面试的专业准备",
-    "getStarted": "开始使用",
-    "learnMore": "了解更多"
+    "title": "掌握你的技术面试",
+    "subtitle": "从编程挑战到系统设计",
+    "description": "加入数千名在顶级科技公司找到理想工作的工程师。专家主导的算法、系统设计和生成式AI面试准备。",
+    "getStarted": "立即开始学习",
+    "viewCourses": "查看课程",
+    "learnMore": "了解更多",
+    "trustedBy": "受以下公司工程师信赖",
+    "stats": {
+      "students": "10,000+",
+      "studentsLabel": "学员培训",
+      "successRate": "94%",
+      "successLabel": "成功率",
+      "companies": "500+",
+      "companiesLabel": "公司录用"
+    }
   },
   "services": {
+    "title": "成功所需的一切",
+    "subtitle": "所有面试领域的全面准备",
     "algorithms": {
-      "title": "算法",
-      "description": "掌握编程面试",
-      "content": "全面准备编程挑战和算法问题。"
+      "title": "算法与数据结构",
+      "description": "信心满满地掌握编程面试",
+      "content": "从数组到高级图算法，练习500+题目，并提供详细解释和最优解决方案。",
+      "features": ["500+练习题目", "视频解释", "时间复杂度分析", "模拟面试"]
     },
     "systemDesign": {
       "title": "系统设计",
-      "description": "信心满满地扩展",
-      "content": "学习为高级面试设计强大、可扩展的系统。"
+      "description": "像高级工程师一样设计可扩展系统",
+      "content": "学习架构分布式系统、处理数百万用户的访问，并像经验丰富的专业人员一样讨论权衡取舍。",
+      "features": ["真实世界案例研究", "可扩展性模式", "架构原则", "设计审查"]
     },
     "genai": {
-      "title": "GenAI专业知识",
-      "description": "面向未来的技能",
-      "content": "通过AI/ML面试准备和现代实践保持领先。"
-    }
+      "title": "生成式AI与机器学习工程",
+      "description": "通过前沿AI技能保持领先",
+      "content": "掌握机器学习系统设计、LLM集成和AI工程实践，为现代科技面试做准备。",
+      "features": ["ML系统设计", "LLM应用", "AI基础设施", "伦理与安全"]
+    },
+    "cta": "探索所有课程"
   },
   "newsletter": {
-    "title": "保持更新",
-    "description": "获取最新面试技巧",
-    "placeholder": "输入您的邮箱",
-    "subscribe": "订阅"
+    "title": "获取周度面试技巧",
+    "description": "加入50,000+工程师的行列，获取独家面试策略、最新科技趋势和就业机会。",
+    "placeholder": "输入您的邮箱地址",
+    "subscribe": "获取免费技巧",
+    "benefits": [
+      "周度编程题目及解决方案",
+      "系统设计案例研究",
+      "薪资谈判指南",
+      "独家就业机会"
+    ],
+    "privacy": "我们尊重您的隐私。随时可以取消订阅。",
+    "success": "谢谢订阅！请检查您的邮箱进行确认。",
+    "error": "请输入有效的邮箱地址。"
   },
   "navigation": {
     "home": "首页",
@@ -56,5 +82,17 @@
     "en": "English",
     "zh-Hans": "简体中文",
     "zh-Hant": "繁體中文"
+  },
+  "testimonials": {
+    "title": "成功案例",
+    "subtitle": "加入数千名实现职业目标的人的行列",
+    "cta": "阅读更多成功故事"
+  },
+  "cta": {
+    "ready": "准备好找到理想工作了吗？",
+    "subtitle": "加入我们的全面面试准备计划，转变您的职业生涯。",
+    "primary": "开始免费试用",
+    "secondary": "安排咨询",
+    "guarantee": "30天退款保证"
   }
 }

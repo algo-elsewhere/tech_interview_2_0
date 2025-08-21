@@ -4,40 +4,66 @@
     "description": "演算法、系統設計和GenAI面試的專業準備"
   },
   "hero": {
-    "title": "技術面試顧問",
-    "description": "演算法、系統設計和GenAI面試的專業準備",
-    "getStarted": "開始使用",
-    "learnMore": "瞭解更多"
+    "title": "掌握您的技術面試",
+    "subtitle": "從程式挑戰到系統設計",
+    "description": "加入數千名在頂級科技公司找到理想工作的工程師。專家主導的演算法、系統設計和生成式AI面試準備。",
+    "getStarted": "立即開始學習",
+    "viewCourses": "查看課程",
+    "learnMore": "瞭解更多",
+    "trustedBy": "受以下公司工程師信賴",
+    "stats": {
+      "students": "10,000+",
+      "studentsLabel": "學員培訓",
+      "successRate": "94%",
+      "successLabel": "成功率",
+      "companies": "500+",
+      "companiesLabel": "公司錄用"
+    }
   },
   "services": {
+    "title": "成功所需的一切",
+    "subtitle": "所有面試領域的全面準備",
     "algorithms": {
-      "title": "演算法",
-      "description": "掌握程式面試",
-      "content": "全面準備程式挑戰和演算法問題。"
+      "title": "演算法與資料結構",
+      "description": "信心滿滿地掌握程式面試",
+      "content": "從陣列到高級圖演算法，練習500+題目，並提供詳細解釋和最佳解決方案。",
+      "features": ["500+練習題目", "影片解釋", "時間複雜度分析", "模擬面試"]
     },
     "systemDesign": {
       "title": "系統設計",
-      "description": "信心滿滿地擴展",
-      "content": "學習為高級面試設計強大、可擴展的系統。"
+      "description": "像高級工程師一樣設計可擴展系統",
+      "content": "學習架構分散式系統、處理數百萬使用者的訪問，並像經驗豐富的專業人員一樣討論權衡取捨。",
+      "features": ["真實世界案例研究", "可擴展性模式", "架構原則", "設計審查"]
     },
     "genai": {
-      "title": "GenAI專業知識",
-      "description": "面向未來的技能",
-      "content": "透過AI/ML面試準備和現代實務保持領先。"
-    }
+      "title": "生成式AI與機器學習工程",
+      "description": "通過前端AI技能保持領先",
+      "content": "掌握機器學習系統設計、LLM整合和AI工程實務，為現代科技面試做準備。",
+      "features": ["ML系統設計", "LLM應用", "AI基礎設施", "倫理與安全"]
+    },
+    "cta": "探索所有課程"
   },
   "newsletter": {
-    "title": "保持更新",
-    "description": "獲取最新面試技巧",
-    "placeholder": "輸入您的電子郵件",
-    "subscribe": "訂閱"
+    "title": "獲取週度面試技巧",
+    "description": "加入50,000+工程師的行列，獲取獨家面試策略、最新科技趨勢和就業機會。",
+    "placeholder": "輸入您的電子郵件位址",
+    "subscribe": "獲取免費技巧",
+    "benefits": [
+      "週度程式題目及解決方案",
+      "系統設計案例研究",
+      "薪資議價指南",
+      "獨家就業機會"
+    ],
+    "privacy": "我們尊重您的隱私。隨時可以取消訂閱。",
+    "success": "謝謝訂閱！請檢查您的電子郵件進行確認。",
+    "error": "請輸入有效的電子郵件位址。"
   },
   "navigation": {
     "home": "首頁",
     "blog": "部落格",
     "courses": "課程",
     "about": "關於",
-    "contact": "聯繫",
+    "contact": "聯絡",
     "menu": "菜單",
     "close": "關閉"
   },
@@ -47,7 +73,7 @@
     "resources": "資源",
     "company": "公司",
     "newsletter": "訂閱通訊",
-    "copyright": "© 2024 技術面試顾問。保留所有權利。",
+    "copyright": "© 2024 技術面試顧問。保留所有權利。",
     "privacy": "隱私政策",
     "terms": "服務條款"
   },
@@ -56,5 +82,17 @@
     "en": "English",
     "zh-Hans": "簡體中文",
     "zh-Hant": "繁體中文"
+  },
+  "testimonials": {
+    "title": "成功案例",
+    "subtitle": "加入數千名實現職業目標的人的行列",
+    "cta": "閱讀更多成功故事"
+  },
+  "cta": {
+    "ready": "準備好找到理想工作了嗎？",
+    "subtitle": "加入我們的全面面試準備計劃，轉變您的職業生涯。",
+    "primary": "開始免費試用",
+    "secondary": "安排課詢",
+    "guarantee": "30天退款保證"
   }
 }

@@ -4,33 +4,59 @@
     "description": "Expert preparation for algorithms, system design, and GenAI interviews"
   },
   "hero": {
-    "title": "Tech Interview Consultant",
-    "description": "Expert preparation for algorithms, system design, and GenAI interviews",
-    "getStarted": "Get Started",
-    "learnMore": "Learn More"
+    "title": "Master Your Tech Interviews",
+    "subtitle": "From Coding Challenges to System Design",
+    "description": "Join thousands of engineers who've landed their dream jobs at top tech companies. Expert-led preparation for algorithms, system design, and GenAI interviews.",
+    "getStarted": "Start Learning Today",
+    "viewCourses": "View Courses",
+    "learnMore": "Learn More",
+    "trustedBy": "Trusted by engineers at",
+    "stats": {
+      "students": "10,000+",
+      "studentsLabel": "Students Trained",
+      "successRate": "94%",
+      "successLabel": "Success Rate",
+      "companies": "500+",
+      "companiesLabel": "Companies Hired"
+    }
   },
   "services": {
+    "title": "Everything You Need to Succeed",
+    "subtitle": "Comprehensive preparation across all interview domains",
     "algorithms": {
-      "title": "Algorithms",
-      "description": "Master coding interviews",
-      "content": "Comprehensive preparation for coding challenges and algorithm problems."
+      "title": "Algorithms & Data Structures",
+      "description": "Master coding interviews with confidence",
+      "content": "From arrays to advanced graph algorithms, practice 500+ problems with detailed explanations and optimal solutions.",
+      "features": ["500+ Practice Problems", "Video Explanations", "Time Complexity Analysis", "Mock Interviews"]
     },
     "systemDesign": {
       "title": "System Design",
-      "description": "Scale with confidence",
-      "content": "Learn to design robust, scalable systems for senior-level interviews."
+      "description": "Design scalable systems like a senior engineer",
+      "content": "Learn to architect distributed systems, handle millions of users, and discuss trade-offs like a seasoned professional.",
+      "features": ["Real-world Case Studies", "Scalability Patterns", "Architecture Principles", "Design Reviews"]
     },
     "genai": {
-      "title": "GenAI Expertise",
-      "description": "Future-ready skills",
-      "content": "Stay ahead with AI/ML interview preparation and modern practices."
-    }
+      "title": "GenAI & ML Engineering",
+      "description": "Stay ahead with cutting-edge AI skills",
+      "content": "Master machine learning systems design, LLM integration, and AI engineering practices for modern tech interviews.",
+      "features": ["ML System Design", "LLM Applications", "AI Infrastructure", "Ethics & Safety"]
+    },
+    "cta": "Explore All Courses"
   },
   "newsletter": {
-    "title": "Stay Updated",
-    "description": "Get the latest interview tips",
-    "placeholder": "Enter your email",
-    "subscribe": "Subscribe"
+    "title": "Get Weekly Interview Tips",
+    "description": "Join 50,000+ engineers receiving our exclusive interview strategies, latest tech trends, and job opportunities.",
+    "placeholder": "Enter your email address",
+    "subscribe": "Get Free Tips",
+    "benefits": [
+      "Weekly coding problems with solutions",
+      "System design case studies",
+      "Salary negotiation guides",
+      "Exclusive job opportunities"
+    ],
+    "privacy": "We respect your privacy. Unsubscribe at any time.",
+    "success": "Thank you for subscribing! Check your email for confirmation.",
+    "error": "Please enter a valid email address."
   },
   "navigation": {
     "home": "Home",
@@ -56,5 +82,17 @@
     "en": "English",
     "zh-Hans": "简体中文",
     "zh-Hant": "繁體中文"
+  },
+  "testimonials": {
+    "title": "Success Stories",
+    "subtitle": "Join thousands who've achieved their career goals",
+    "cta": "Read More Success Stories"
+  },
+  "cta": {
+    "ready": "Ready to Land Your Dream Job?",
+    "subtitle": "Join our comprehensive interview preparation program and transform your career.",
+    "primary": "Start Free Trial",
+    "secondary": "Schedule Consultation",
+    "guarantee": "30-day money-back guarantee"
   }
 }
