@@ -1,0 +1,118 @@
+---
+title: "掌握二分查找算法"
+description: "全面理解和实现二分查找的指南，包含实际例子和常见变体。"
+publishedAt: "2024-01-15"
+updatedAt: "2024-01-20"
+author: "技术面试专家"
+tags: ["算法", "二分查找", "面试准备", "数据结构"]
+category: "algorithms"
+featured: true
+difficulty: "intermediate"
+readingTime: 8
+---
+
+# 掌握二分查找算法
+
+二分查找是每个软件工程师都应该掌握的最基础算法之一。它高效、优雅，并且在技术面试中经常出现。
+
+## 什么是二分查找？
+
+二分查找是一种**分治算法**，用于在有序数组中查找目标值的位置。它将目标值与数组的中间元素进行比较。
+
+### 时间复杂度
+- **最佳情况**: O(1) - 目标值就是中间元素
+- **平均情况**: O(log n)
+- **最坏情况**: O(log n)
+
+### 空间复杂度
+- **迭代版本**: O(1)
+- **递归版本**: O(log n) 由于调用栈
+
+## 基础实现
+
+这是经典的迭代实现：
+
+```python
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    
+    while left <= right:
+        mid = left + (right - left) // 2
+        
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return -1  # 未找到目标值
+```
+
+### 关键点：
+- 使用 `left + (right - left) // 2` 避免整数溢出
+- 循环条件是 `left <= right`
+- 正确更新指针：`left = mid + 1` 或 `right = mid - 1`
+
+## 常见变体
+
+### 1. 查找第一个出现位置
+```python
+def find_first(arr, target):
+    left, right = 0, len(arr) - 1
+    result = -1
+    
+    while left <= right:
+        mid = left + (right - left) // 2
+        
+        if arr[mid] == target:
+            result = mid
+            right = mid - 1  # 继续向左查找
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return result
+```
+
+### 2. 查找最后一个出现位置
+```python
+def find_last(arr, target):
+    left, right = 0, len(arr) - 1
+    result = -1
+    
+    while left <= right:
+        mid = left + (right - left) // 2
+        
+        if arr[mid] == target:
+            result = mid
+            left = mid + 1  # 继续向右查找
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    
+    return result
+```
+
+## 练习题目
+
+> 尝试这些问题来掌握二分查找：
+> 
+> 1. **搜索插入位置** (LeetCode 35)
+> 2. **寻找峰值** (LeetCode 162)
+> 3. **搜索旋转排序数组** (LeetCode 33)
+
+## 面试技巧
+
+1. **明确问题**：数组是否有序？是否有重复元素？
+2. **选择正确模板**：基础查找 vs 边界查找
+3. **处理边界情况**：空数组、单个元素、目标值不存在
+4. **用例子测试**：逐步演示你的解决方案
+
+二分查找不仅仅是查找元素——它是**优化问题**和**决策问题**的强大技术，可以在每一步消除一半的搜索空间。
+
+---
+
+*接下来：学习[双指针技术](/posts/two-pointers-technique)以及它如何在问题解决中与二分查找互补。*
