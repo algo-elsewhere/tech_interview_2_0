@@ -15,9 +15,13 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <AnalyticsProvider domain={process.env.NEXT_PUBLIC_ANALYTICS_DOMAIN}>
-      <WebVitalsMonitor />
-      {children}
-    </AnalyticsProvider>
+    <html suppressHydrationWarning>
+      <body>
+        <AnalyticsProvider domain={process.env.NEXT_PUBLIC_ANALYTICS_DOMAIN}>
+          <WebVitalsMonitor />
+          {children}
+        </AnalyticsProvider>
+      </body>
+    </html>
   )
 }

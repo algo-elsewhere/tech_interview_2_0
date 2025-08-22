@@ -67,10 +67,7 @@ vi.mock('@/lib/analytics', () => ({
 
 // Setup environment variables for tests
 beforeAll(() => {
-  // Note: NODE_ENV is read-only in production builds
-  if (process.env.NODE_ENV !== 'production') {
-    Object.defineProperty(process.env, 'NODE_ENV', { value: 'test', writable: true })
-  }
+  // Set up test environment variables
   process.env.NEXT_PUBLIC_ANALYTICS_DOMAIN = 'test.com'
   process.env.NEXT_PUBLIC_ENABLE_ANALYTICS = 'false'
 })

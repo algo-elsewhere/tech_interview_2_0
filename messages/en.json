@@ -266,5 +266,58 @@
         "button": "Book Free Call"
       }
     }
+  },
+  "about": {
+    "meta": {
+      "title": "About Us | Tech Interview Consultant",
+      "description": "Learn about our mission to help engineers succeed in technical interviews. Meet our team of experts with experience at top tech companies."
+    },
+    "hero": {
+      "title": "Empowering Engineers to Achieve Their Career Goals",
+      "description": "With over a decade of experience in technical interviews and engineering leadership, we've helped thousands of engineers land their dream jobs at top tech companies.",
+      "experience": "10+ Years Experience",
+      "companies": "500+ Companies",
+      "students": "10K+ Students",
+      "imageAlt": "Tech Interview Consultant team"
+    },
+    "story": {
+      "title": "Our Story",
+      "paragraph1": "Tech Interview Consultant was founded in 2014 with a simple mission: to democratize access to high-quality technical interview preparation. We started when our founder, after struggling through multiple failed interviews, realized there was a gap between what engineers learned in bootcamps or universities and what companies actually expected in interviews.",
+      "paragraph2": "Over the years, we've worked with engineers from diverse backgrounds - from recent graduates to senior engineers changing companies. We've seen patterns in what separates successful candidates from those who struggle, and we've distilled these insights into our comprehensive curriculum.",
+      "paragraph3": "Today, our alumni work at companies like Google, Amazon, Microsoft, Apple, Netflix, and hundreds of other tech companies. But more importantly, they've gained the confidence and skills to continue growing throughout their careers."
+    },
+    "expertise": {
+      "title": "Our Areas of Expertise",
+      "algorithms": {
+        "title": "Algorithms & Data Structures",
+        "description": "Master coding interviews with proven strategies and extensive practice on 500+ carefully curated problems."
+      },
+      "systemDesign": {
+        "title": "System Design",
+        "description": "Learn to architect scalable systems and discuss trade-offs like a senior engineer with real-world case studies."
+      },
+      "genai": {
+        "title": "GenAI & ML Engineering",
+        "description": "Stay ahead with cutting-edge AI skills including ML system design, LLM integration, and AI engineering practices."
+      }
+    },
+    "achievements": {
+      "title": "Our Impact",
+      "studentsHelped": "Students Helped",
+      "successRate": "Success Rate",
+      "companies": "Partner Companies",
+      "experience": "Years of Experience"
+    },
+    "philosophy": {
+      "title": "Our Philosophy",
+      "quote": "Success in technical interviews isn't just about knowing algorithms - it's about thinking like an engineer and communicating your thought process clearly.",
+      "description": "We believe that with the right guidance, practice, and mindset, any motivated engineer can succeed in technical interviews. Our approach focuses not just on memorizing solutions, but on developing problem-solving frameworks that will serve you throughout your career."
+    },
+    "cta": {
+      "title": "Ready to Start Your Journey?",
+      "description": "Join thousands of engineers who have transformed their careers with our expert guidance.",
+      "contactButton": "Get in Touch",
+      "coursesButton": "View Courses"
+    }
   }
 }
