@@ -63,7 +63,7 @@ export const LazyContactForm = dynamic(
 )
 
 // Generic lazy wrapper for any component
-export function createLazyComponent<T extends ComponentType<any>>(
+export function createLazyComponent<T extends ComponentType>(
   importFn: () => Promise<{ default: T }>,
   options?: {
     loading?: () => React.ReactElement
@@ -79,8 +79,8 @@ export function createLazyComponent<T extends ComponentType<any>>(
 // Intersection Observer based lazy loading
 export function LazyOnVisible({ 
   children, 
-  rootMargin = '100px',
-  threshold = 0.1,
+  rootMargin: _rootMargin = '100px',
+  threshold: _threshold = 0.1,
   fallback = <LoadingSpinner />
 }: {
   children: React.ReactNode

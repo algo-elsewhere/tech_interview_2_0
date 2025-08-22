@@ -1,0 +1,21 @@
+{
+  "advisories": {
+    "allowlist": [],
+    "report": "detailed"
+  },
+  "dependencies": {
+    "allowlist": []
+  },
+  "dev-dependencies": true,
+  "levels": {
+    "critical": true,
+    "high": true,
+    "moderate": false,
+    "low": false,
+    "info": false
+  },
+  "output": {
+    "format": "json",
+    "path": "./audit-report.json"
+  }
+}
