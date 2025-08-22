@@ -1,12 +1,8 @@
 import { useTranslations } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { generateSEOMetadata } from '@/lib/seo'
-import { OptimizedImage } from '@/components/ui'
-
-interface AboutPageProps {
-  params: Promise<{ locale: string }>
-}
 
 export async function generateMetadata({
   params
@@ -172,7 +168,7 @@ export default function AboutPage() {
               {t('philosophy.title')}
             </h2>
             <blockquote className="text-2xl font-medium text-muted-foreground italic mb-8">
-              "{t('philosophy.quote')}"
+              &ldquo;{t('philosophy.quote')}&rdquo;
             </blockquote>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {t('philosophy.description')}
@@ -192,18 +188,18 @@ export default function AboutPage() {
               {t('cta.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <Link
                 href="/en/contact"
                 className="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               >
                 {t('cta.contactButton')}
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/en/courses"
                 className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors"
               >
                 {t('cta.coursesButton')}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

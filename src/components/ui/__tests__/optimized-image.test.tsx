@@ -1,10 +1,11 @@
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen, waitFor } from '@/lib/test-utils'
+import { render, screen, waitFor, act } from '@/lib/test-utils'
 import { OptimizedImage } from '../optimized-image'
+import type { ImageProps } from 'next/image'
 
 // Mock next/image
 vi.mock('next/image', () => ({
-  default: ({ src, alt, onLoad, onError, ...props }: any) => {
+  default: ({ src, alt, onLoad, onError, priority, ...props }: ImageProps & { onLoad?: () => void; onError?: () => void }) => {
     return (
       <img
         src={src}
@@ -12,6 +13,7 @@ vi.mock('next/image', () => ({
         onLoad={onLoad}
         onError={onError}
         data-testid="next-image"
+        data-priority={priority?.toString()}
         {...props}
       />
     )
@@ -45,8 +47,9 @@ describe('OptimizedImage', () => {
     )
 
     // Loading spinner should be visible
-    const loadingSpinner = screen.getByRole('generic', { hidden: true })
-    expect(loadingSpinner).toHaveClass('animate-spin')
+    const loadingSpinners = screen.getAllByRole('generic', { hidden: true })
+    const spinnerElement = loadingSpinners.find(el => el.classList.contains('animate-spin'))
+    expect(spinnerElement).toHaveClass('animate-spin')
   })
 
   it('should hide loading state after image loads', async () => {
@@ -62,7 +65,9 @@ describe('OptimizedImage', () => {
     const image = screen.getByTestId('next-image')
     
     // Simulate image load
-    image.dispatchEvent(new Event('load'))
+    await act(async () => {
+      image.dispatchEvent(new Event('load'))
+    })
 
     await waitFor(() => {
       expect(image).toHaveStyle({ opacity: '1' })
@@ -83,7 +88,10 @@ describe('OptimizedImage', () => {
     )
 
     const image = screen.getByTestId('next-image')
-    image.dispatchEvent(new Event('load'))
+    
+    await act(async () => {
+      image.dispatchEvent(new Event('load'))
+    })
 
     await waitFor(() => {
       expect(onLoadComplete).toHaveBeenCalled()
@@ -104,7 +112,9 @@ describe('OptimizedImage', () => {
     const image = screen.getByTestId('next-image')
     
     // Simulate image error
-    image.dispatchEvent(new Event('error'))
+    await act(async () => {
+      image.dispatchEvent(new Event('error'))
+    })
 
     await waitFor(() => {
       expect(image).toHaveAttribute('src', '/fallback-image.jpg')
@@ -124,7 +134,9 @@ describe('OptimizedImage', () => {
     const image = screen.getByTestId('next-image')
     
     // Simulate image error
-    image.dispatchEvent(new Event('error'))
+    await act(async () => {
+      image.dispatchEvent(new Event('error'))
+    })
 
     await waitFor(() => {
       const errorIcon = screen.getByLabelText('Image failed to load')
@@ -146,7 +158,10 @@ describe('OptimizedImage', () => {
     )
 
     const image = screen.getByTestId('next-image')
-    image.dispatchEvent(new Event('error'))
+    
+    await act(async () => {
+      image.dispatchEvent(new Event('error'))
+    })
 
     await waitFor(() => {
       expect(onError).toHaveBeenCalled()

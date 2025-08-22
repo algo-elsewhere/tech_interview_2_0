@@ -18,7 +18,11 @@ const eslintConfig = [
       "node_modules/**/*",
       "*.tsbuildinfo",
       "*.config.js",
-      "*.config.ts"
+      "*.config.ts",
+      "docs/_site/**/*",
+      "docs/.jekyll-cache/**/*",
+      "coverage/**/*",
+      ".nyc_output/**/*"
     ]
   },
   {

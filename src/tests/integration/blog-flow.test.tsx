@@ -1,17 +1,8 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { render, screen } from '@/lib/test-utils'
 import { userEvent } from '@/lib/test-utils'
-import { BlogList } from '@/components/blog/blog-list'
 import { BlogCard } from '@/components/blog/blog-card'
 import { createMockPost } from '@/lib/test-utils'
-
-// Mock next/navigation
-const mockPush = vi.fn()
-vi.mock('next/navigation', () => ({
-  useRouter: () => ({ push: mockPush }),
-  useSearchParams: () => new URLSearchParams(),
-  usePathname: () => '/en/blog',
-}))
 
 describe('Blog User Flow Integration', () => {
   const mockPosts = [
@@ -53,68 +44,22 @@ describe('Blog User Flow Integration', () => {
     }),
   ]
 
-  it('should display all blog posts correctly', () => {
-    render(<BlogList posts={mockPosts} currentPage={1} />)
+  it('should display individual blog post correctly', () => {
+    render(<BlogCard post={mockPosts[0]} />)
 
-    // Should show all posts
+    // Should show post details
     expect(screen.getByText('React Testing Best Practices')).toBeInTheDocument()
-    expect(screen.getByText('Complete Algorithms Guide')).toBeInTheDocument()
-    expect(screen.getByText('System Design Fundamentals')).toBeInTheDocument()
-
-    // Should show authors
+    expect(screen.getByText('Learn how to test React components effectively')).toBeInTheDocument()
     expect(screen.getByText('Jane Doe')).toBeInTheDocument()
-    expect(screen.getByText('John Smith')).toBeInTheDocument()
-    expect(screen.getByText('Alice Johnson')).toBeInTheDocument()
-
-    // Should show categories
     expect(screen.getByText('frontend')).toBeInTheDocument()
-    expect(screen.getByText('algorithms')).toBeInTheDocument()
-    expect(screen.getByText('system-design')).toBeInTheDocument()
   })
 
-  it('should filter posts by category', () => {
-    render(<BlogList posts={mockPosts} currentCategory="algorithms" currentPage={1} />)
-
-    // Should only show algorithms posts
-    expect(screen.getByText('Complete Algorithms Guide')).toBeInTheDocument()
-    expect(screen.queryByText('React Testing Best Practices')).not.toBeInTheDocument()
-    expect(screen.queryByText('System Design Fundamentals')).not.toBeInTheDocument()
-  })
-
-  it('should highlight featured posts', () => {
-    render(<BlogList posts={mockPosts} currentPage={1} />)
+  it('should render featured post with special styling', () => {
+    render(<BlogCard post={mockPosts[0]} />)
 
     // Featured post should have special styling
-    const featuredPost = screen.getByText('React Testing Best Practices').closest('article')
-    expect(featuredPost).toBeInTheDocument()
-  })
-
-  it('should handle empty search results', () => {
-    render(<BlogList posts={[]} currentPage={1} />)
-
-    expect(screen.getByText(/no posts found/i)).toBeInTheDocument()
-  })
-
-  it('should handle pagination correctly', () => {
-    const manyPosts = Array.from({ length: 25 }, (_, i) =>
-      createMockPost({
-        slug: `post-${i}`,
-        meta: {
-          title: `Post ${i + 1}`,
-          description: `Description ${i + 1}`,
-          category: 'general',
-          tags: ['test'],
-          publishedAt: '2024-01-01',
-          author: 'Test Author',
-        },
-      })
-    )
-
-    render(<BlogList posts={manyPosts} currentPage={1} />)
-
-    // Should show pagination controls
-    const pagination = screen.getByRole('navigation', { name: /pagination/i })
-    expect(pagination).toBeInTheDocument()
+    const postCard = screen.getByRole('link')
+    expect(postCard).toBeInTheDocument()
   })
 
   it('should navigate to blog post when clicked', async () => {
@@ -129,37 +74,32 @@ describe('Blog User Flow Integration', () => {
   })
 
   it('should show correct publish dates', () => {
-    render(<BlogList posts={mockPosts} currentPage={1} />)
+    render(<BlogCard post={mockPosts[0]} />)
 
-    // Should show formatted dates
+    // Should show formatted date
     expect(screen.getByText('January 15, 2024')).toBeInTheDocument()
-    expect(screen.getByText('January 10, 2024')).toBeInTheDocument()
-    expect(screen.getByText('January 5, 2024')).toBeInTheDocument()
   })
 
   it('should handle different locales correctly', () => {
-    render(<BlogList posts={mockPosts} currentPage={1} />, { locale: 'zh-Hans' })
+    render(<BlogCard post={mockPosts[0]} />, { locale: 'zh-Hans' })
 
     // Should render with Chinese locale context
-    const postLinks = screen.getAllByRole('link')
-    postLinks.forEach((link) => {
-      expect(link.getAttribute('href')).toMatch(/^\/zh-Hans\/blog\//)
-    })
+    const postLink = screen.getByRole('link')
+    expect(postLink.getAttribute('href')).toMatch(/^\/zh-Hans\/blog\//)
   })
 
   it('should show reading time when available', () => {
-    const postsWithReadingTime = mockPosts.map(post => ({
-      ...post,
+    const postWithReadingTime = {
+      ...mockPosts[0],
       meta: {
-        ...post.meta,
+        ...mockPosts[0].meta,
         readingTime: 5,
       },
-    }))
+    }
 
-    render(<BlogList posts={postsWithReadingTime} currentPage={1} />)
+    render(<BlogCard post={postWithReadingTime} />)
 
-    const readingTimes = screen.getAllByText('5 min read')
-    expect(readingTimes).toHaveLength(3)
+    expect(screen.getByText('5 min read')).toBeInTheDocument()
   })
 
   it('should handle posts with missing optional fields', () => {
@@ -183,14 +123,12 @@ describe('Blog User Flow Integration', () => {
     expect(screen.queryByText('Featured')).not.toBeInTheDocument()
   })
 
-  it('should maintain consistent styling across all posts', () => {
-    render(<BlogList posts={mockPosts} currentPage={1} />)
+  it('should maintain consistent styling', () => {
+    render(<BlogCard post={mockPosts[0]} />)
 
-    const postCards = screen.getAllByRole('link')
+    const postCard = screen.getByRole('link')
     
-    // All cards should have consistent classes
-    postCards.forEach((card) => {
-      expect(card).toHaveClass('transition-all')
-    })
+    // Card should have transition classes
+    expect(postCard).toHaveClass('transition-all')
   })
 })

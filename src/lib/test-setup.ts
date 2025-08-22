@@ -38,32 +38,82 @@ global.ResizeObserver = vi.fn().mockImplementation(() => ({
 }))
 
 // Mock next/navigation
-vi.mock('next/navigation', () => ({
-  useRouter: () => ({
+vi.mock('next/navigation', () => {
+  const mockUseRouter = () => ({
     push: vi.fn(),
     replace: vi.fn(),
     back: vi.fn(),
     forward: vi.fn(),
     refresh: vi.fn(),
     prefetch: vi.fn(),
-  }),
-  useSearchParams: () => new URLSearchParams(),
-  usePathname: () => '/en',
-  notFound: vi.fn(),
-}))
+  })
+  
+  return {
+    useRouter: mockUseRouter,
+    useSearchParams: () => new URLSearchParams(),
+    usePathname: () => '/en',
+    notFound: vi.fn(),
+  }
+})
 
 // Mock next/image
 vi.mock('next/image', () => ({
-  default: ({ src, alt, ...props }: { src: string; alt: string; [key: string]: unknown }) => {
-    return React.createElement('img', { src, alt, ...props })
+  default: ({ src, alt, width, height, priority, quality, sizes, placeholder, blurDataURL, onLoad, onError, style, ...props }: { 
+    src: string; 
+    alt: string; 
+    width?: number;
+    height?: number;
+    priority?: boolean;
+    quality?: number;
+    sizes?: string;
+    placeholder?: string;
+    blurDataURL?: string;
+    onLoad?: () => void;
+    onError?: () => void;
+    style?: React.CSSProperties;
+    [key: string]: unknown;
+  }) => {
+    return React.createElement('img', { 
+      src, 
+      alt, 
+      width, 
+      height,
+      'data-testid': 'next-image',
+      'data-priority': priority?.toString(),
+      quality,
+      sizes,
+      placeholder,
+      'data-blur': blurDataURL,
+      onLoad,
+      onError,
+      style,
+      ...props 
+    })
   },
 }))
 
-// Mock analytics
-vi.mock('@/lib/analytics', () => ({
-  trackEvent: vi.fn(),
-  trackPageView: vi.fn(),
-}))
+// Mock next-intl
+vi.mock('next-intl/navigation', () => {
+  const createSharedPathnamesNavigation = () => ({
+    Link: ({ href, children, ...props }: { href: string; children: React.ReactNode; [key: string]: unknown }) => 
+      React.createElement('a', { href, ...props }, children),
+    redirect: vi.fn(),
+    usePathname: () => '/en',
+    useRouter: () => ({
+      push: vi.fn(),
+      replace: vi.fn(),
+      back: vi.fn(),
+    }),
+  })
+  
+  return { 
+    createSharedPathnamesNavigation,
+    createNavigation: createSharedPathnamesNavigation,
+  }
+})
+
+// Note: Analytics is not globally mocked here to allow unit tests
+// Individual test files can mock it as needed
 
 // Setup environment variables for tests
 beforeAll(() => {

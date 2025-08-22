@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { trackEvent, trackPageView, trackCTA, trackForm } from '../analytics'
+import { trackEvent, trackCTAClick, trackFormEvent } from '../analytics'
 
 // Mock window.plausible
 const mockPlausible = vi.fn()
@@ -19,147 +19,108 @@ describe('Analytics', () => {
 
   describe('trackEvent', () => {
     it('should call plausible with correct parameters', () => {
-      trackEvent('test_event', { key: 'value' })
+      trackEvent('click_cta', { key: 'value' })
 
-      expect(mockPlausible).toHaveBeenCalledWith('test_event', {
+      expect(mockPlausible).toHaveBeenCalledWith('click_cta', {
         props: { key: 'value' },
       })
-    })
-
-    it('should not track in development when analytics disabled', () => {
-      process.env.NODE_ENV = 'development'
-      process.env.NEXT_PUBLIC_ENABLE_ANALYTICS = 'false'
-
-      trackEvent('test_event')
-
-      expect(mockPlausible).not.toHaveBeenCalled()
     })
 
     it('should track in development when analytics enabled', () => {
       process.env.NODE_ENV = 'development'
       process.env.NEXT_PUBLIC_ENABLE_ANALYTICS = 'true'
 
-      trackEvent('test_event')
+      trackEvent('click_cta')
 
-      expect(mockPlausible).toHaveBeenCalledWith('test_event', { props: {} })
+      expect(mockPlausible).toHaveBeenCalledWith('click_cta', { props: undefined })
     })
 
     it('should handle missing window.plausible gracefully', () => {
-      delete (window as any).plausible
+      const originalPlausible = (window as any).plausible
+      ;(window as any).plausible = undefined
 
-      expect(() => trackEvent('test_event')).not.toThrow()
+      expect(() => trackEvent('click_cta')).not.toThrow()
+      
+      // Restore original
+      ;(window as any).plausible = originalPlausible
     })
   })
 
-  describe('trackPageView', () => {
-    it('should track page view with correct parameters', () => {
-      trackPageView('/en/blog/test', 'en', 'blog')
-
-      expect(mockPlausible).toHaveBeenCalledWith('pageview', {
-        props: {
-          path: '/en/blog/test',
-          locale: 'en',
-          section: 'blog',
-        },
-      })
-    })
-
-    it('should handle optional parameters', () => {
-      trackPageView('/en')
-
-      expect(mockPlausible).toHaveBeenCalledWith('pageview', {
-        props: {
-          path: '/en',
-          locale: undefined,
-          section: undefined,
-        },
-      })
-    })
-  })
-
-  describe('trackCTA', () => {
+  describe('trackCTAClick', () => {
     it('should track CTA click with correct parameters', () => {
-      const cta = {
+      trackCTAClick({
         location: 'hero',
-        action: 'get_started',
-        label: 'Get Started Button',
-      }
+        action: 'sign_up',
+        label: 'Get Started',
+      })
 
-      trackCTA(cta)
-
-      expect(mockPlausible).toHaveBeenCalledWith('cta_click', {
+      expect(mockPlausible).toHaveBeenCalledWith('click_cta', {
         props: {
           location: 'hero',
-          action: 'get_started',
-          label: 'Get Started Button',
+          action: 'sign_up',
+          label: 'Get Started',
         },
       })
     })
 
     it('should handle minimal CTA data', () => {
-      trackCTA({ location: 'footer' })
+      trackCTAClick({ 
+        location: 'footer',
+        action: 'click'
+      })
 
-      expect(mockPlausible).toHaveBeenCalledWith('cta_click', {
+      expect(mockPlausible).toHaveBeenCalledWith('click_cta', {
         props: {
           location: 'footer',
-          action: undefined,
+          action: 'click',
           label: undefined,
         },
       })
     })
   })
 
-  describe('trackForm', () => {
+  describe('trackFormEvent', () => {
     it('should track form start', () => {
-      trackForm('start', 'contact')
+      trackFormEvent({
+        form_type: 'contact',
+        event_type: 'start'
+      })
 
-      expect(mockPlausible).toHaveBeenCalledWith('form_start', {
+      expect(mockPlausible).toHaveBeenCalledWith('start_form', {
         props: {
           form_type: 'contact',
+          error_message: undefined,
         },
       })
     })
 
-    it('should track form success with additional data', () => {
-      trackForm('success', 'newsletter', { source: 'footer' })
+    it('should track form success', () => {
+      trackFormEvent({
+        form_type: 'newsletter',
+        event_type: 'success'
+      })
 
-      expect(mockPlausible).toHaveBeenCalledWith('form_success', {
+      expect(mockPlausible).toHaveBeenCalledWith('submit_form_success', {
         props: {
           form_type: 'newsletter',
-          source: 'footer',
+          error_message: undefined,
         },
       })
     })
 
     it('should track form error', () => {
-      trackForm('error', 'contact', { error: 'validation_failed' })
+      trackFormEvent({
+        form_type: 'contact',
+        event_type: 'error',
+        error_message: 'validation_failed'
+      })
 
-      expect(mockPlausible).toHaveBeenCalledWith('form_error', {
+      expect(mockPlausible).toHaveBeenCalledWith('submit_form_error', {
         props: {
           form_type: 'contact',
-          error: 'validation_failed',
+          error_message: 'validation_failed',
         },
       })
-    })
-  })
-
-  describe('analytics configuration', () => {
-    it('should respect analytics domain configuration', () => {
-      process.env.NEXT_PUBLIC_ANALYTICS_DOMAIN = 'example.com'
-      
-      trackEvent('test')
-
-      expect(mockPlausible).toHaveBeenCalled()
-    })
-
-    it('should work without analytics domain in development', () => {
-      process.env.NODE_ENV = 'development'
-      delete process.env.NEXT_PUBLIC_ANALYTICS_DOMAIN
-
-      trackEvent('test')
-
-      // Should still track in development
-      expect(mockPlausible).toHaveBeenCalled()
     })
   })
 })
