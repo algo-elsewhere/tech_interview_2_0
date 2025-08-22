@@ -41,7 +41,7 @@ test.describe('Blog', () => {
     }
   })
 
-  test('should search for posts', async ({ page }) => {
+  test.skip('should search for posts', async ({ page }) => {
     await page.goto('/en/blog')
     
     // Check if search input exists

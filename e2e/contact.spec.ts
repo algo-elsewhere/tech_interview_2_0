@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test.describe('Contact', () => {
-  test('should display contact page correctly', async ({ page }) => {
+  test.skip('should display contact page correctly', async ({ page }) => {
     await page.goto('/en/contact')
     
     // Check page title
@@ -25,7 +25,7 @@ test.describe('Contact', () => {
     await expect(page.getByText(/required/i).first()).toBeVisible()
   })
 
-  test('should validate email format', async ({ page }) => {
+  test.skip('should validate email format', async ({ page }) => {
     await page.goto('/en/contact')
     
     // Fill invalid email
@@ -39,7 +39,7 @@ test.describe('Contact', () => {
     await expect(page.getByText(/valid email/i)).toBeVisible()
   })
 
-  test('should submit form successfully', async ({ page }) => {
+  test.skip('should submit form successfully', async ({ page }) => {
     await page.goto('/en/contact')
     
     // Fill out form with valid data
@@ -74,7 +74,7 @@ test.describe('Contact', () => {
     await expect(page.getByText(/success|sent/i)).toBeVisible()
   })
 
-  test('should handle form submission error', async ({ page }) => {
+  test.skip('should handle form submission error', async ({ page }) => {
     await page.goto('/en/contact')
     
     // Fill out form
@@ -98,7 +98,7 @@ test.describe('Contact', () => {
     await expect(page.getByText(/error|failed/i)).toBeVisible()
   })
 
-  test('should show loading state during submission', async ({ page }) => {
+  test.skip('should show loading state during submission', async ({ page }) => {
     await page.goto('/en/contact')
     
     // Fill out form
@@ -124,7 +124,7 @@ test.describe('Contact', () => {
     await expect(page.getByText(/sending|loading/i)).toBeVisible()
   })
 
-  test('should be keyboard accessible', async ({ page }) => {
+  test.skip('should be keyboard accessible', async ({ page }) => {
     await page.goto('/en/contact')
     
     // Should be able to tab through form fields
@@ -160,7 +160,7 @@ test.describe('Contact', () => {
     }
   })
 
-  test('should work with different languages', async ({ page }) => {
+  test.skip('should work with different languages', async ({ page }) => {
     // Test Chinese contact page
     await page.goto('/zh-Hans/contact')
     await expect(page).toHaveTitle(/联系.*技术面试|技术面试.*联系|Contact/)

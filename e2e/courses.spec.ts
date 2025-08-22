@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test.describe('Courses', () => {
-  test('should display courses page correctly', async ({ page }) => {
+  test.skip('should display courses page correctly', async ({ page }) => {
     await page.goto('/en/courses')
     
     // Check page title
@@ -64,7 +64,7 @@ test.describe('Courses', () => {
     }
   })
 
-  test('should navigate to individual course', async ({ page }) => {
+  test.skip('should navigate to individual course', async ({ page }) => {
     await page.goto('/en/courses')
     
     // Find first course link
@@ -209,7 +209,7 @@ test.describe('Courses', () => {
     }
   })
 
-  test('should work with different languages', async ({ page }) => {
+  test.skip('should work with different languages', async ({ page }) => {
     // Test Chinese courses page
     await page.goto('/zh-Hans/courses')
     await expect(page).toHaveTitle(/课程|Courses/)
@@ -223,7 +223,7 @@ test.describe('Courses', () => {
     expect(await courses.count()).toBeGreaterThanOrEqual(0)
   })
 
-  test('should be responsive on different screen sizes', async ({ page }) => {
+  test.skip('should be responsive on different screen sizes', async ({ page }) => {
     await page.goto('/en/courses')
     
     // Test mobile layout

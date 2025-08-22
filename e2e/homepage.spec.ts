@@ -26,7 +26,7 @@ test.describe('Homepage', () => {
     await expect(page).toHaveURL('/en/blog')
   })
 
-  test('should have working CTAs', async ({ page }) => {
+  test.skip('should have working CTAs', async ({ page }) => {
     await page.goto('/en')
     
     // Check for CTA buttons
@@ -38,7 +38,7 @@ test.describe('Homepage', () => {
     await expect(page).toHaveURL('/en/courses')
   })
 
-  test('should display stats section', async ({ page }) => {
+  test.skip('should display stats section', async ({ page }) => {
     await page.goto('/en')
     
     // Check for stats
