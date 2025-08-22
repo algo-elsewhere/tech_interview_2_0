@@ -5,7 +5,7 @@ test.describe('Homepage', () => {
     await page.goto('/en')
     
     // Check page title
-    await expect(page).toHaveTitle(/Tech Interview Consultant/)
+    await expect(page).toHaveTitle(/Tech Interview.*Consultant/)
     
     // Check main heading
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()

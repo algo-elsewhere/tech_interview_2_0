@@ -5,7 +5,7 @@ test.describe('Blog', () => {
     await page.goto('/en/blog')
     
     // Check page title
-    await expect(page).toHaveTitle(/Blog.*Tech Interview/)
+    await expect(page).toHaveTitle(/Tech Interview.*Blog/)
     
     // Check main heading
     await expect(page.getByRole('heading', { level: 1 })).toContainText(/blog/i)

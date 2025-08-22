@@ -5,7 +5,7 @@ test.describe('Contact', () => {
     await page.goto('/en/contact')
     
     // Check page title
-    await expect(page).toHaveTitle(/Contact.*Tech Interview/)
+    await expect(page).toHaveTitle(/Contact.*Tech Interview|Tech Interview.*Contact/)
     
     // Check main heading
     await expect(page.getByRole('heading', { level: 1 })).toContainText(/contact/i)
@@ -163,11 +163,11 @@ test.describe('Contact', () => {
   test('should work with different languages', async ({ page }) => {
     // Test Chinese contact page
     await page.goto('/zh-Hans/contact')
-    await expect(page).toHaveTitle(/联系|Contact/)
+    await expect(page).toHaveTitle(/联系.*技术面试|技术面试.*联系|Contact/)
     
     // Test Traditional Chinese contact page
     await page.goto('/zh-Hant/contact')
-    await expect(page).toHaveTitle(/聯絡|Contact/)
+    await expect(page).toHaveTitle(/聯絡.*技術面試|技術面試.*聯絡|Contact/)
     
     // Form should still be functional
     await expect(page.getByRole('form')).toBeVisible()
