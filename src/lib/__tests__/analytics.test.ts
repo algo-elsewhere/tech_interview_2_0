@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { trackEvent, trackCTAClick, trackFormEvent } from '../analytics'
 
 // Mock window.plausible
@@ -10,11 +10,17 @@ Object.defineProperty(window, 'plausible', {
 })
 
 describe('Analytics', () => {
+  const originalNodeEnv = process.env.NODE_ENV
+  
   beforeEach(() => {
     vi.clearAllMocks()
     // Reset environment variables
     process.env.NEXT_PUBLIC_ENABLE_ANALYTICS = 'true'
-    process.env.NODE_ENV = 'production'
+    ;(process.env as any).NODE_ENV = 'production'
+  })
+  
+  afterEach(() => {
+    ;(process.env as any).NODE_ENV = originalNodeEnv
   })
 
   describe('trackEvent', () => {
@@ -27,7 +33,7 @@ describe('Analytics', () => {
     })
 
     it('should track in development when analytics enabled', () => {
-      process.env.NODE_ENV = 'development'
+      ;(process.env as any).NODE_ENV = 'development'
       process.env.NEXT_PUBLIC_ENABLE_ANALYTICS = 'true'
 
       trackEvent('click_cta')

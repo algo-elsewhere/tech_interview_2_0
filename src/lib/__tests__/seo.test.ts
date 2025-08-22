@@ -48,9 +48,9 @@ describe('SEO Utilities', () => {
 
       const metadata = await generateSEOMetadata(config)
 
-      expect(metadata.openGraph?.type).toBe('article')
-      expect(metadata.openGraph?.publishedTime).toBe('2024-01-01')
-      expect(metadata.openGraph?.modifiedTime).toBe('2024-01-02')
+      expect((metadata.openGraph as any)?.type).toBe('article')
+      expect((metadata.openGraph as any)?.publishedTime).toBe('2024-01-01')
+      expect((metadata.openGraph as any)?.modifiedTime).toBe('2024-01-02')
       expect(metadata.authors).toEqual([{ name: 'John Doe' }])
       expect(metadata.category).toBe('tech')
     })

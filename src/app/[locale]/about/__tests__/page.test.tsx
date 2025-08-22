@@ -4,7 +4,7 @@ import AboutPage from '../page'
 
 // Mock the async metadata function
 vi.mock('../page', async (importOriginal) => {
-  const actual = await importOriginal()
+  const actual = await importOriginal() as any
   return {
     ...actual,
     generateMetadata: vi.fn().mockResolvedValue({

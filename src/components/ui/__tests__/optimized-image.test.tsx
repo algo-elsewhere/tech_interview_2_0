@@ -6,9 +6,14 @@ import type { ImageProps } from 'next/image'
 // Mock next/image
 vi.mock('next/image', () => ({
   default: ({ src, alt, onLoad, onError, priority, ...props }: ImageProps & { onLoad?: () => void; onError?: () => void }) => {
+    // Handle different src types (string, StaticImport, etc.)
+    const srcString = typeof src === 'string' ? src : 
+                     (src && typeof src === 'object' && 'src' in src) ? (src as any).src : 
+                     '/test-image.jpg'
+    
     return (
       <img
-        src={src}
+        src={srcString}
         alt={alt}
         onLoad={onLoad}
         onError={onError}
