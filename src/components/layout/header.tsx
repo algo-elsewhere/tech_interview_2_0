@@ -22,11 +22,12 @@ export function Header() {
         {/* Logo */}
         <div className="mr-4 flex">
           <Link className="mr-6 flex items-center space-x-2" href="/">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-sm">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-sm relative">
               TI
+              <span className="absolute -top-0.5 -right-0.5 text-[0.5rem] leading-none">²</span>
             </div>
             <span className="hidden font-bold sm:inline-block">
-              Tech Interview
+              Tech Interview 2.0
             </span>
           </Link>
         </div>
