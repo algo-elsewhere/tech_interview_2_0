@@ -1,0 +1,10 @@
+# Prevent search engine indexing during development phase
+# Remove or modify this file when ready for public launch
+
+User-agent: *
+Disallow: /
+
+# When ready for public launch, replace above with:
+# User-agent: *
+# Allow: /
+# Sitemap: https://yourdomain.com/sitemap.xml
