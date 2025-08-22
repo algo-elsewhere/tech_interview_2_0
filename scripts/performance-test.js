@@ -166,7 +166,7 @@ async function checkServer(retries = 10, delay = 2000) {
       if (response.ok) {
         return true
       }
-    } catch (error) {
+    } catch {
       if (i < retries - 1) {
         console.log(`Server not ready, retrying in ${delay/1000}s... (${i + 1}/${retries})`)
         await new Promise(resolve => setTimeout(resolve, delay))
