@@ -152,6 +152,15 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: Start production server
+        run: npm start &
+        env:
+          NODE_ENV: production
+      
+      - name: Wait for server to be ready
+        run: |
+          timeout 30 bash -c 'until curl -f http://localhost:3000; do sleep 1; done'
+      
       - name: Run performance tests
         run: npm run perf
         env:

@@ -156,15 +156,24 @@ async function generateReport() {
   }
 }
 
-// Check if server is running
-async function checkServer() {
-  try {
-    const fetch = (await import('node-fetch')).default
-    await fetch('http://localhost:3000')
-    return true
-  } catch {
-    return false
+// Check if server is running with retries
+async function checkServer(retries = 10, delay = 2000) {
+  const fetch = (await import('node-fetch')).default
+  
+  for (let i = 0; i < retries; i++) {
+    try {
+      const response = await fetch('http://localhost:3000')
+      if (response.ok) {
+        return true
+      }
+    } catch (error) {
+      if (i < retries - 1) {
+        console.log(`Server not ready, retrying in ${delay/1000}s... (${i + 1}/${retries})`)
+        await new Promise(resolve => setTimeout(resolve, delay))
+      }
+    }
   }
+  return false
 }
 
 async function main() {
