@@ -54,8 +54,10 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-sm relative">
-                TI
-                <span className="absolute -top-0.5 -right-0.5 text-[0.5rem] leading-none">²</span>
+                <span className="relative">
+                  TI
+                  <sup className="absolute top-0 -right-1 text-[0.4rem] font-bold">2</sup>
+                </span>
               </div>
               <span className="font-bold text-lg">
                 Tech Interview 2.0
