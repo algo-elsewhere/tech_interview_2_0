@@ -16,12 +16,15 @@ export async function generateMetadata({
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'about' })
 
-  return generateSEOMetadata({
-    title: t('meta.title'),
-    description: t('meta.description'),
-    canonical: `/${locale}/about`,
-    locale
-  })
+  return {
+    ...await generateSEOMetadata({
+      title: t('meta.title'),
+      description: t('meta.description'),
+      canonical: `/${locale}/about`,
+      locale
+    }),
+    metadataBase: new URL('http://localhost:3000'), // Use environment-specific base URL
+  }
 }
 
 export default function AboutPage() {

@@ -34,12 +34,15 @@ export async function generateMetadata({
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'meta' })
 
-  return generateSEOMetadata({
-    title: t('title'),
-    description: t('description'),
-    canonical: `/${locale}`,
-    locale
-  })
+  return {
+    ...await generateSEOMetadata({
+      title: t('title'),
+      description: t('description'),
+      canonical: `/${locale}`,
+      locale
+    }),
+    metadataBase: new URL('http://localhost:3000'), // Use environment-specific base URL
+  }
 }
 
 export default async function LocaleLayout({
