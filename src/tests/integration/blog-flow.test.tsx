@@ -76,8 +76,9 @@ describe('Blog User Flow Integration', () => {
   it('should show correct publish dates', () => {
     render(<BlogCard post={mockPosts[0]} />)
 
-    // Should show formatted date (JS default format)
-    expect(screen.getByText('1/14/2024')).toBeInTheDocument()
+    // Should show formatted date (JS default format - may vary by timezone)
+    const expectedDate = new Date('2024-01-15').toLocaleDateString()
+    expect(screen.getByText(expectedDate)).toBeInTheDocument()
   })
 
   it('should handle different locales correctly', () => {

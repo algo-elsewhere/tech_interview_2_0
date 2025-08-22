@@ -30,7 +30,9 @@ describe('BlogCard', () => {
   it('should render publication date', () => {
     render(<BlogCard post={mockPost} />)
 
-    expect(screen.getByText('12/31/2023')).toBeInTheDocument()
+    // Use dynamic date formatting to handle timezone differences
+    const expectedDate = new Date('2024-01-01').toLocaleDateString()
+    expect(screen.getByText(expectedDate)).toBeInTheDocument()
   })
 
   it('should render reading time when provided', () => {
