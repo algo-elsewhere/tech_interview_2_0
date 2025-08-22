@@ -32,6 +32,7 @@ describe('ContactForm', () => {
     await waitFor(() => {
       expect(screen.getByText(/name is required/i)).toBeInTheDocument()
       expect(screen.getByText(/email is required/i)).toBeInTheDocument()
+      expect(screen.getByText(/subject is required/i)).toBeInTheDocument()
       expect(screen.getByText(/message is required/i)).toBeInTheDocument()
     })
   })
@@ -47,7 +48,7 @@ describe('ContactForm', () => {
     await user.click(submitButton)
 
     await waitFor(() => {
-      expect(screen.getByText(/please enter a valid email/i)).toBeInTheDocument()
+      expect(screen.getByText(/please enter a valid email address/i)).toBeInTheDocument()
     })
   })
 
@@ -59,8 +60,9 @@ describe('ContactForm', () => {
     await user.type(screen.getByLabelText(/name/i), 'John Doe')
     await user.type(screen.getByLabelText(/email/i), 'john@example.com')
     await user.type(screen.getByLabelText(/company/i), 'Tech Corp')
-    await user.selectOptions(screen.getByLabelText(/inquiry type/i), 'consultation')
-    await user.type(screen.getByLabelText(/message/i), 'This is a test message.')
+    await user.selectOptions(screen.getByLabelText(/inquiry type/i), 'consulting')
+    await user.type(screen.getByLabelText(/subject/i), 'Test Subject')
+    await user.type(screen.getByLabelText(/message/i), 'This is a test message that is longer than 20 characters.')
 
     const submitButton = screen.getByRole('button', { name: /send message/i })
     await user.click(submitButton)
@@ -85,13 +87,14 @@ describe('ContactForm', () => {
     // Fill out the form
     await user.type(screen.getByLabelText(/name/i), 'John Doe')
     await user.type(screen.getByLabelText(/email/i), 'john@example.com')
-    await user.type(screen.getByLabelText(/message/i), 'Test message')
+    await user.type(screen.getByLabelText(/subject/i), 'Test Subject')
+    await user.type(screen.getByLabelText(/message/i), 'This is a test message that is longer than 20 characters.')
 
     const submitButton = screen.getByRole('button', { name: /send message/i })
     await user.click(submitButton)
 
     await waitFor(() => {
-      expect(screen.getByText(/message sent successfully/i)).toBeInTheDocument()
+      expect(screen.getByText(/message sent!/i)).toBeInTheDocument()
     })
   })
 
@@ -109,13 +112,14 @@ describe('ContactForm', () => {
     // Fill out the form
     await user.type(screen.getByLabelText(/name/i), 'John Doe')
     await user.type(screen.getByLabelText(/email/i), 'john@example.com')
-    await user.type(screen.getByLabelText(/message/i), 'Test message')
+    await user.type(screen.getByLabelText(/subject/i), 'Test Subject')
+    await user.type(screen.getByLabelText(/message/i), 'This is a test message that is longer than 20 characters.')
 
     const submitButton = screen.getByRole('button', { name: /send message/i })
     await user.click(submitButton)
 
     await waitFor(() => {
-      expect(screen.getByText(/failed to send message/i)).toBeInTheDocument()
+      expect(screen.getByText(/something went wrong/i)).toBeInTheDocument()
     })
   })
 
@@ -131,23 +135,26 @@ describe('ContactForm', () => {
 
     const nameInput = screen.getByLabelText(/name/i)
     const emailInput = screen.getByLabelText(/email/i)
+    const subjectInput = screen.getByLabelText(/subject/i)
     const messageInput = screen.getByLabelText(/message/i)
 
     // Fill out the form
     await user.type(nameInput, 'John Doe')
     await user.type(emailInput, 'john@example.com')
-    await user.type(messageInput, 'Test message')
+    await user.type(subjectInput, 'Test Subject')
+    await user.type(messageInput, 'This is a test message that is longer than 20 characters.')
 
     const submitButton = screen.getByRole('button', { name: /send message/i })
     await user.click(submitButton)
 
     await waitFor(() => {
-      expect(screen.getByText(/message sent successfully/i)).toBeInTheDocument()
+      expect(screen.getByText(/message sent!/i)).toBeInTheDocument()
     })
 
     // Form should be reset
     expect(nameInput).toHaveValue('')
     expect(emailInput).toHaveValue('')
+    expect(subjectInput).toHaveValue('')
     expect(messageInput).toHaveValue('')
   })
 

@@ -111,7 +111,8 @@ describe('Performance Utilities', () => {
     })
 
     it('should handle missing plausible gracefully', () => {
-      delete (window as any).plausible
+      const originalPlausible = (window as any).plausible
+      ;(window as any).plausible = undefined
 
       const metric = {
         id: 'test-id',
@@ -122,6 +123,9 @@ describe('Performance Utilities', () => {
       }
 
       expect(() => sendWebVitals(metric)).not.toThrow()
+      
+      // Restore original
+      ;(window as any).plausible = originalPlausible
     })
   })
 

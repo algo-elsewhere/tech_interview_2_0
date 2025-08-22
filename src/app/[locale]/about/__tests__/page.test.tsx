@@ -112,16 +112,12 @@ describe('About Page', () => {
     expect(coursesButton).toHaveAttribute('href', '/en/courses')
   })
 
-  it('should render optimized image with proper props', () => {
+  it('should render hero section with placeholder', () => {
     render(<AboutPage />)
     
-    // Check for hero image
-    const heroImage = screen.getByAltText(/Tech Interview Consultant team/i)
-    expect(heroImage).toBeInTheDocument()
-    
-    // Check image attributes
-    expect(heroImage).toHaveAttribute('src')
-    expect(heroImage).toHaveAttribute('alt', 'Tech Interview Consultant team')
+    // Check for hero content placeholder
+    const heroSection = screen.getByText('Tech Interview Consultant team')
+    expect(heroSection).toBeInTheDocument()
   })
 
   it('should have proper semantic structure', () => {

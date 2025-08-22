@@ -267,7 +267,7 @@ export function ContactForm() {
                 onValueChange={(value) => handleInputChange('inquiryType', value)}
                 disabled={formState === 'loading'}
               >
-                <SelectTrigger>
+                <SelectTrigger id="inquiryType">
                   <SelectValue placeholder={t('form.placeholders.inquiryType')} />
                 </SelectTrigger>
                 <SelectContent>
