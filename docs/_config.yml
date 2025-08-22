@@ -1,0 +1,45 @@
+# GitHub Pages configuration
+title: "Tech Interview 2.0 Documentation"
+description: "Comprehensive documentation for the Tech Interview 2.0 platform"
+remote_theme: just-the-docs/just-the-docs
+
+# Site settings
+url: "https://your-username.github.io"
+baseurl: "/tech_interview_2_0"
+
+# Theme configuration
+color_scheme: nil
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 2
+  preview_words_before: 3
+  preview_words_after: 3
+  tokenizer_separator: /[\s/]+/
+  rel_url: true
+
+# Navigation
+nav_sort: case_insensitive
+
+# Enable collections
+collections:
+  docs:
+    permalink: "/:collection/:name/"
+    output: true
+
+defaults:
+  - scope:
+      path: "docs"
+    values:
+      layout: "default"
+
+# Footer content
+footer_content: "Copyright &copy; 2024 Tech Interview 2.0. Distributed by an MIT license."
+
+# Color scheme (light/dark)
+color_scheme: light
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
